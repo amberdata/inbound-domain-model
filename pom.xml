@@ -11,6 +11,17 @@
 
   <name>generic-domain-model</name>
   <description>Amberdata Ingestion API generic domain model</description>
+  <url>https://github.com/amberdata/generic-domain-model</url>
+  <organization>
+    <name>Amberdata</name>
+    <url>https://amberdata.io</url>
+  </organization>
+  <licenses>
+    <license>
+      <name></name>
+      <url></url>
+    </license>
+  </licenses>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -34,6 +45,14 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
       </plugin>
     </plugins>
   </build>
