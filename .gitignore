@@ -1,0 +1,40 @@
+# Project artifacts
+# =================
+
+.bak/
+/output/
+/target/
+
+# Vim temp files
+*~
+
+
+# OS X - Desktop Services Store
+# =============================
+
+.DS_Store
+
+
+# IDE - Eclipse
+# =============
+
+.settings/
+bin/
+.checkstyle
+.classpath
+.project
+
+
+# IDE - IntelliJ
+# ==============
+
+.idea/
+*.iml
+
+
+# Other
+# =====
+
+*.log
+screenlog.0
+
