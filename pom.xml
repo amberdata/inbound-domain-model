@@ -5,13 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.amberdata.ingestion-api</groupId>
-  <artifactId>generic-domain-model</artifactId>
-  <version>0.1.0</version>
+  <artifactId>ingestion-domain-model</artifactId>
+  <version>0.1.1</version>
   <packaging>jar</packaging>
 
-  <name>generic-domain-model</name>
-  <description>Amberdata Ingestion API generic domain model</description>
-  <url>https://github.com/amberdata/generic-domain-model</url>
+  <name>ingestion-domain-model</name>
+  <description>Amberdata Ingestion API domain model</description>
+  <url>https://github.com/amberdata/ingestion-domain-model</url>
   <organization>
     <name>Amberdata</name>
     <url>https://amberdata.io</url>
