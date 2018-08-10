@@ -1,7 +1,8 @@
 ### Amberdata Ingestion API
 
-Not every blockchain has exactly the same entities in its domain model... On the other hand mostly all of them have commonalities. 
-If not same names but similar meaning. The idea behind the Amberdata Ingestion API domain model is to gather all similarities 
+Not every blockchain has exactly the same entities in its domain model... On the other hand mostly all of them have commonalities. If not same names but similar meaning. 
+
+The idea behind the Amberdata Ingestion API domain model is to gather all similarities 
 into generic entities which represent blockchain metrics and bridge them to the [REST API](https://blockchains.amberdata.io/api/v1/spec)
 
 
