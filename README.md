@@ -60,3 +60,22 @@ Block block = new Block.Builder()
   .timestamp(1533891660)
   .build();
 ```
+
+In some cases you have parameters which don't fit the generic model. In order not to miss such parameters, you will use `optionalProperties` map
+
+```java
+Map<String, Object> optionalProperties = new HashMap<>();
+optionalProperties.put("operarion_name", "transfer");
+optionalProperties.put("operarion_value", 1000);
+        
+Block block = new Block.Builder()
+  .number(BigInteger.valueOf(5_000_000))
+  .hash("0x1234a")
+  .parentHash("0x1234b")
+  .gasUsed(new BigDecimal(100))
+  .numTransactions(10)
+  .timestamp(1533891660)
+  .optionalProperties(optionalProperties)
+  .build();
+```
+
