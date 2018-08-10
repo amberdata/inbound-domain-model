@@ -46,4 +46,17 @@ $ ./mvnw clean install
 
 ### Getting Started
 
-describe here how to create - builders
+To populate and create an entity you will use Builder methods of the entity class
+
+In the simplest case to create a block you will write similar code
+                                
+```java
+Block block = new Block.Builder()
+  .number(BigInteger.valueOf(5_000_000))
+  .hash("0x1234a")
+  .parentHash("0x1234b")
+  .gasUsed(new BigDecimal(100))
+  .numTransactions(10)
+  .timestamp(1533891660)
+  .build();
+```
