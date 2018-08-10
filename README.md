@@ -30,7 +30,7 @@ Add a dependency to your `pom.xml`
 
 or to your `build.gradle`
 
-```groovy
+```gradle
 dependencies {
     implementation 'io.amberdata.ingestion-api:ingestion-domain-model:0.1.1'
 }
