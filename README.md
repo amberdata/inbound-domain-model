@@ -8,7 +8,7 @@ into generic entities which represent blockchain metrics and bridge them to the 
 
 ### Ingestion API domain model
 
-short descripiton
+Ingestion API domain model contains a collection of generic entities.
 
 
 ### Getting it
