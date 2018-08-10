@@ -11,6 +11,9 @@ public class Asset {
   private boolean isAuthRequired;
   private boolean isAuthRevocable;
 
+  public Asset() {
+  }
+
   private Asset(Builder builder) {
     this.type = builder.type;
     this.code = builder.code;
@@ -97,44 +100,6 @@ public class Asset {
         + '}';
   }
 
-  public enum AssetType {
-    ASSET_TYPE_NATIVE(0, "native"),
-    ASSET_TYPE_CREDIT_ALPHANUM4(1, "credit_alphanum4"),
-    ASSET_TYPE_CREDIT_ALPHANUM12(2, "credit_alphanum12"),
-    ASSET_TYPE_UNKNOWN(3, "unknown");
-
-    private int value;
-    private String name;
-
-    AssetType(int value, String name) {
-      this.value = value;
-      this.name = name;
-    }
-
-    /**
-     * Creates asset type from its string representation.
-     * @param name asset type as string
-     * @return AssetType instance or ASSET_TYPE_UNKNOWN if there is no such string representation
-     */
-    public static AssetType fromName(String name) {
-      for (AssetType assetType : values()) {
-        if (assetType.getName().equals(name)) {
-          return assetType;
-        }
-      }
-
-      return AssetType.ASSET_TYPE_UNKNOWN;
-    }
-
-    public int getValue() {
-      return this.value;
-    }
-
-    public String getName() {
-      return name;
-    }
-  }
-
   public static class Builder {
 
     private AssetType type;
@@ -176,6 +141,39 @@ public class Asset {
 
     public Asset build() {
       return new Asset(this);
+    }
+  }
+
+  public enum AssetType {
+    ASSET_TYPE_NATIVE(0, "native"),
+    ASSET_TYPE_CREDIT_ALPHANUM4(1, "credit_alphanum4"),
+    ASSET_TYPE_CREDIT_ALPHANUM12(2, "credit_alphanum12"),
+    ASSET_TYPE_UNKNOWN(3, "unknown");
+
+    private int value;
+    private String name;
+
+    AssetType(int value, String name) {
+      this.value = value;
+      this.name = name;
+    }
+
+    public static AssetType fromName(String name) {
+      for (AssetType assetType : values()) {
+        if (assetType.getName().equals(name)) {
+          return assetType;
+        }
+      }
+
+      return AssetType.ASSET_TYPE_UNKNOWN;
+    }
+
+    public int getValue() {
+      return this.value;
+    }
+
+    public String getName() {
+      return name;
     }
   }
 }

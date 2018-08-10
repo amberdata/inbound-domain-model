@@ -9,6 +9,9 @@ public class Address implements BlockchainEntity {
   private Long timestamp;
   private Map<String, Object> optionalProperties;
 
+  public Address() {
+  }
+
   private Address(Builder builder) {
     this.hash = builder.hash;
     this.timestamp = builder.timestamp;

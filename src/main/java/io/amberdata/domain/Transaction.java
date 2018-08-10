@@ -1,5 +1,6 @@
 package io.amberdata.domain;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,12 @@ public class Transaction implements BlockchainEntity {
   private Integer numLogs;
   private Long timestamp;
   private List<FunctionCall> functionCalls;
+  private String status;
+  private BigDecimal value;
   private Map<String, Object> optionalProperties;
+
+  public Transaction() {
+  }
 
   private Transaction(Builder builder) {
     this.hash = builder.hash;
@@ -111,6 +117,22 @@ public class Transaction implements BlockchainEntity {
     this.optionalProperties = optionalProperties;
   }
 
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public BigDecimal getValue() {
+    return value;
+  }
+
+  public void setValue(BigDecimal value) {
+    this.value = value;
+  }
+
   @Override
   public boolean equals(Object obj) {
     if (this == obj) {
@@ -154,6 +176,8 @@ public class Transaction implements BlockchainEntity {
     private Integer numLogs;
     private Long timestamp;
     private List<FunctionCall> functionCalls;
+    private String status;
+    private BigDecimal value;
     private Map<String, Object> optionalProperties;
 
     public Transaction.Builder hash(String value) {
@@ -196,8 +220,18 @@ public class Transaction implements BlockchainEntity {
       return this;
     }
 
-    public Transaction.Builder functionCalls(List<FunctionCall> functionCalls) {
-      this.functionCalls = functionCalls;
+    public Transaction.Builder functionCalls(List<FunctionCall> value) {
+      this.functionCalls = value;
+      return this;
+    }
+
+    public Transaction.Builder status(String value) {
+      this.status = value;
+      return this;
+    }
+
+    public Transaction.Builder value(BigDecimal value) {
+      this.value = value;
       return this;
     }
 

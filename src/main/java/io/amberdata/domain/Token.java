@@ -15,6 +15,9 @@ public class Token implements BlockchainEntity {
 
   private Map<String, Object> optionalProperties;
 
+  public Token() {
+  }
+
   private Token(Builder builder) {
     this.address = builder.address;
     this.symbol = builder.symbol;
