@@ -21,8 +21,8 @@ Add a dependency to your `pom.xml`
 
 ```xml
 <dependency>
-  <groupId>io.amberdata.ingestion-api</groupId>
-  <artifactId>ingestion-domain-model</artifactId>
+  <groupId>io.amberdata.ingestion</groupId>
+  <artifactId>ingestion-model</artifactId>
   <version>0.1.1</version>
 </dependency>
 
