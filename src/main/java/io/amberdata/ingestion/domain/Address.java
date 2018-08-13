@@ -1,4 +1,4 @@
-package io.amberdata.domain;
+package io.amberdata.ingestion.domain;
 
 import java.util.Map;
 import java.util.Objects;

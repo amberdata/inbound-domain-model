@@ -1,4 +1,4 @@
-package io.amberdata.domain;
+package io.amberdata.ingestion.domain;
 
 public interface BlockchainEntity {
 }

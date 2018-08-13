@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<project
+    xmlns              = "http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.amberdata.ingestion-api</groupId>
-  <artifactId>ingestion-domain-model</artifactId>
+  <groupId>io.amberdata.ingestion</groupId>
+  <artifactId>ingestion-domain</artifactId>
   <version>0.1.1</version>
   <packaging>jar</packaging>
 
-  <name>ingestion-domain-model</name>
+  <name>ingestion-domain</name>
   <description>Amberdata Ingestion API domain model</description>
+
   <url>https://github.com/amberdata/ingestion-domain-model</url>
   <organization>
     <name>Amberdata</name>
     <url>https://amberdata.io</url>
   </organization>
+
   <licenses>
     <license>
-      <name></name>
-      <url></url>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
     </license>
   </licenses>
 
@@ -78,4 +83,3 @@
     </plugins>
   </build>
 </project>
-
