@@ -22,7 +22,7 @@ Add a dependency to your `pom.xml`
 ```xml
 <dependency>
   <groupId>io.amberdata.ingestion</groupId>
-  <artifactId>ingestion-model</artifactId>
+  <artifactId>ingestion-domain</artifactId>
   <version>0.1.1</version>
 </dependency>
 
@@ -32,7 +32,7 @@ or to your `build.gradle`
 
 ```gradle
 dependencies {
-    implementation 'io.amberdata.ingestion-api:ingestion-domain-model:0.1.1'
+    implementation 'io.amberdata.ingestion:ingestion-domain:0.1.1'
 }
 ```
 
