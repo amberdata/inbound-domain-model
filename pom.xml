@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.amberdata.ingestion</groupId>
-  <artifactId>ingestion-model</artifactId>
+  <artifactId>ingestion-domain</artifactId>
   <version>0.1.1</version>
   <packaging>jar</packaging>
 
-  <name>ingestion-domain-model</name>
+  <name>ingestion-domain</name>
   <description>Amberdata Ingestion API domain model</description>
   <url>https://github.com/amberdata/ingestion-domain-model</url>
   <organization>
