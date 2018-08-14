@@ -17,12 +17,13 @@ public class FunctionCall implements BlockchainEntity {
   private String value;
   private String meta;
   private List<FunctionCall> subFunctions;
-  private Map<String, Object> optionalProperties;
   private Long blockNumber;
   private String transactionHash;
   private Integer depth;
   private Integer index;
   private Long timestamp;
+
+  private Map<String, Object> optionalProperties;
 
   public FunctionCall() {
   }
