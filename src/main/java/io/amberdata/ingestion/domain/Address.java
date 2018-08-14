@@ -7,6 +7,7 @@ public class Address implements BlockchainEntity {
 
   private String hash;
   private Long timestamp;
+
   private Map<String, Object> optionalProperties;
 
   public Address() {

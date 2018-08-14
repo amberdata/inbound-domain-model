@@ -13,6 +13,7 @@ public class Block implements BlockchainEntity {
   private BigDecimal gasUsed;
   private Long timestamp;
   private Integer numTransactions;
+
   private Map<String, Object> optionalProperties;
 
   public Block() {

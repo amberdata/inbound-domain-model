@@ -19,6 +19,7 @@ public class Transaction implements BlockchainEntity {
   private List<FunctionCall> functionCalls;
   private String status;
   private BigDecimal value;
+  
   private Map<String, Object> optionalProperties;
 
   public Transaction() {
