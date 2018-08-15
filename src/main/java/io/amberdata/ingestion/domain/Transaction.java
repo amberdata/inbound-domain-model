@@ -35,6 +35,8 @@ public class Transaction implements BlockchainEntity {
     this.numLogs = builder.numLogs;
     this.timestamp = builder.timestamp;
     this.functionCalls = builder.functionCalls;
+    this.status = builder.status;
+    this.value = builder.value;
     this.meta = builder.meta;
   }
 
