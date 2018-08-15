@@ -13,7 +13,7 @@ public class Token implements BlockchainEntity {
   private boolean erc20;
   private boolean erc721;
 
-  private Map<String, Object> optionalProperties;
+  private Map<String, Object> meta;
 
   public Token() {
   }
@@ -26,7 +26,7 @@ public class Token implements BlockchainEntity {
     this.erc20 = builder.erc20;
     this.erc721 = builder.erc721;
 
-    this.optionalProperties = builder.optionalProperties;
+    this.meta = builder.meta;
   }
 
   public String getAddress() {
@@ -77,12 +77,12 @@ public class Token implements BlockchainEntity {
     this.erc721 = erc721;
   }
 
-  public Map<String, Object> getOptionalProperties() {
-    return optionalProperties;
+  public Map<String, Object> getMeta() {
+    return meta;
   }
 
-  public void setOptionalProperties(Map<String, Object> optionalProperties) {
-    this.optionalProperties = optionalProperties;
+  public void setMeta(Map<String, Object> meta) {
+    this.meta = meta;
   }
 
   @Override
@@ -101,25 +101,25 @@ public class Token implements BlockchainEntity {
         && Objects.equals(symbol, token.symbol)
         && Objects.equals(name, token.name)
         && Objects.equals(decimals, token.decimals)
-        && Objects.equals(optionalProperties, token.optionalProperties);
+        && Objects.equals(meta, token.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, symbol, name, decimals, erc20, erc721, optionalProperties);
+    return Objects.hash(address, symbol, name, decimals, erc20, erc721, meta);
   }
 
   @Override
   public String toString() {
-    return "Token{"
-        + "address='" + address + '\''
-        + ", symbol='" + symbol + '\''
-        + ", name='" + name + '\''
-        + ", decimals=" + decimals
-        + ", erc20=" + erc20
-        + ", erc721=" + erc721
-        + ", optionalProperties=" + optionalProperties
-        + '}';
+    return "Token{" +
+        "address='" + address + '\'' +
+        ", symbol='" + symbol + '\'' +
+        ", name='" + name + '\'' +
+        ", decimals=" + decimals +
+        ", erc20=" + erc20 +
+        ", erc721=" + erc721 +
+        ", meta=" + meta +
+        '}';
   }
 
   public static class Builder {
@@ -131,7 +131,7 @@ public class Token implements BlockchainEntity {
     private boolean erc20;
     private boolean erc721;
 
-    private Map<String, Object> optionalProperties;
+    private Map<String, Object> meta;
 
     public Builder address(String value) {
       this.address = value;
@@ -163,8 +163,8 @@ public class Token implements BlockchainEntity {
       return this;
     }
 
-    public Builder optionalProperties(Map<String, Object> value) {
-      this.optionalProperties = value;
+    public Builder meta(Map<String, Object> value) {
+      this.meta = value;
       return this;
     }
 

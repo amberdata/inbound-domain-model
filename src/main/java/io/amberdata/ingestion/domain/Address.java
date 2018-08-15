@@ -8,7 +8,7 @@ public class Address implements BlockchainEntity {
   private String hash;
   private Long timestamp;
 
-  private Map<String, Object> optionalProperties;
+  private Map<String, Object> meta;
 
   public Address() {
   }
@@ -16,7 +16,7 @@ public class Address implements BlockchainEntity {
   private Address(Builder builder) {
     this.hash = builder.hash;
     this.timestamp = builder.timestamp;
-    this.optionalProperties = builder.optionalProperties;
+    this.meta = builder.meta;
   }
 
   public String getHash() {
@@ -35,12 +35,12 @@ public class Address implements BlockchainEntity {
     this.timestamp = timestamp;
   }
 
-  public Map<String, Object> getOptionalProperties() {
-    return optionalProperties;
+  public Map<String, Object> getMeta() {
+    return meta;
   }
 
-  public void setOptionalProperties(Map<String, Object> optionalProperties) {
-    this.optionalProperties = optionalProperties;
+  public void setMeta(Map<String, Object> meta) {
+    this.meta = meta;
   }
 
   @Override
@@ -54,28 +54,28 @@ public class Address implements BlockchainEntity {
     Address address = (Address) obj;
     return Objects.equals(hash, address.hash)
         && Objects.equals(timestamp, address.timestamp)
-        && Objects.equals(optionalProperties, address.optionalProperties);
+        && Objects.equals(meta, address.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hash, timestamp, optionalProperties);
+    return Objects.hash(hash, timestamp, meta);
   }
 
   @Override
   public String toString() {
-    return "Address{"
-        + "hash='" + hash + '\''
-        + ", timestamp=" + timestamp
-        + ", optionalProperties=" + optionalProperties
-        + '}';
+    return "Address{" +
+        "hash='" + hash + '\'' +
+        ", timestamp=" + timestamp +
+        ", meta=" + meta +
+        '}';
   }
 
   public static class Builder {
 
     private String hash;
     private Long timestamp;
-    private Map<String, Object> optionalProperties;
+    private Map<String, Object> meta;
 
     public Address.Builder hash(String value) {
       this.hash = value;
@@ -87,8 +87,8 @@ public class Address implements BlockchainEntity {
       return this;
     }
 
-    public Address.Builder optionalProperties(Map<String, Object> value) {
-      this.optionalProperties = value;
+    public Address.Builder meta (Map<String, Object> value) {
+      this.meta = value;
       return this;
     }
 

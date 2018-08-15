@@ -8,11 +8,11 @@ public class Asset implements BlockchainEntity {
   private String code;
   private String issuerAccount;
   private String amount;
-  private Long timestamp;
   private String transactionHash;
   private String functionCallHash;
+  private Long timestamp;
 
-  private Map<String, Object> optionalProperties;
+  private Map<String, Object> meta;
 
   public Asset() {
   }
@@ -26,7 +26,7 @@ public class Asset implements BlockchainEntity {
     this.transactionHash = builder.transactionHash;
     this.functionCallHash = builder.functionCallHash;
 
-    this.optionalProperties = builder.optionalProperties;
+    this.meta = builder.meta;
   }
 
   public AssetType getType() {
@@ -61,8 +61,8 @@ public class Asset implements BlockchainEntity {
     this.amount = amount;
   }
 
-  public Map<String, Object> getOptionalProperties() {
-    return optionalProperties;
+  public Map<String, Object> getMeta () {
+    return meta;
   }
 
   public Long getTimestamp() {
@@ -89,8 +89,8 @@ public class Asset implements BlockchainEntity {
     this.functionCallHash = functionCallHash;
   }
 
-  public void setOptionalProperties(Map<String, Object> optionalProperties) {
-    this.optionalProperties = optionalProperties;
+  public void setMeta (Map<String, Object> meta) {
+    this.meta = meta;
   }
 
   @Override
@@ -115,11 +115,16 @@ public class Asset implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "Asset{"
-        + "type=" + type
-        + ", code=" + code
-        + ", issuerAccount='" + issuerAccount + '\''
-        + '}';
+    return "Asset{" +
+        "type=" + type +
+        ", code='" + code + '\'' +
+        ", issuerAccount='" + issuerAccount + '\'' +
+        ", amount='" + amount + '\'' +
+        ", transactionHash='" + transactionHash + '\'' +
+        ", functionCallHash='" + functionCallHash + '\'' +
+        ", timestamp=" + timestamp +
+        ", meta=" + meta +
+        '}';
   }
 
   public static class Builder {
@@ -131,7 +136,7 @@ public class Asset implements BlockchainEntity {
     private String transactionHash;
     private String functionCallHash;
 
-    private Map<String, Object> optionalProperties;
+    private Map<String, Object> meta;
 
     public Builder type(AssetType value) {
       this.type = value;
@@ -168,8 +173,8 @@ public class Asset implements BlockchainEntity {
       return this;
     }
 
-    public Builder optionalProperties(Map<String, Object> value) {
-      this.optionalProperties = value;
+    public Builder meta(Map<String, Object> value) {
+      this.meta = value;
       return this;
     }
 

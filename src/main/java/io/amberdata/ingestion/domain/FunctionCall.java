@@ -15,7 +15,6 @@ public class FunctionCall implements BlockchainEntity {
   private String to;
   private String assetType;
   private String value;
-  private String meta;
   private List<FunctionCall> subFunctions;
   private Long blockNumber;
   private String transactionHash;
@@ -23,7 +22,7 @@ public class FunctionCall implements BlockchainEntity {
   private Integer index;
   private Long timestamp;
 
-  private Map<String, Object> optionalProperties;
+  private Map<String, Object> meta;
 
   public FunctionCall() {
   }
@@ -38,9 +37,8 @@ public class FunctionCall implements BlockchainEntity {
     this.to = builder.to;
     this.assetType = builder.assetType;
     this.value = builder.value;
-    this.meta = builder.meta;
     this.subFunctions = builder.subFunctions;
-    this.optionalProperties = builder.optionalProperties;
+    this.meta = builder.meta;
     this.blockNumber = builder.blockNumber;
     this.transactionHash = builder.transactionHash;
     this.depth = builder.depth;
@@ -120,14 +118,6 @@ public class FunctionCall implements BlockchainEntity {
     this.value = value;
   }
 
-  public String getMeta() {
-    return meta;
-  }
-
-  public void setMeta(String meta) {
-    this.meta = meta;
-  }
-
   public List<FunctionCall> getSubFunctions() {
     return subFunctions;
   }
@@ -136,12 +126,12 @@ public class FunctionCall implements BlockchainEntity {
     this.subFunctions = subFunctions;
   }
 
-  public Map<String, Object> getOptionalProperties() {
-    return optionalProperties;
+  public Map<String, Object> getMeta() {
+    return meta;
   }
 
-  public void setOptionalProperties(Map<String, Object> optionalProperties) {
-    this.optionalProperties = optionalProperties;
+  public void setMeta(Map<String, Object> meta) {
+    this.meta = meta;
   }
 
   public Long getBlockNumber() {
@@ -202,9 +192,8 @@ public class FunctionCall implements BlockchainEntity {
         && Objects.equals(to, that.to)
         && Objects.equals(assetType, that.assetType)
         && Objects.equals(value, that.value)
-        && Objects.equals(meta, that.meta)
         && Objects.equals(subFunctions, that.subFunctions)
-        && Objects.equals(optionalProperties, that.optionalProperties)
+        && Objects.equals(meta, that.meta)
         && Objects.equals(blockNumber, that.blockNumber)
         && Objects.equals(transactionHash, that.transactionHash)
         && Objects.equals(timestamp, that.timestamp);
@@ -221,9 +210,8 @@ public class FunctionCall implements BlockchainEntity {
         to,
         assetType,
         value,
-        meta,
         subFunctions,
-        optionalProperties,
+        meta,
         blockNumber,
         transactionHash,
         timestamp
@@ -232,22 +220,24 @@ public class FunctionCall implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "FunctionCall{"
-        + "name='" + name + '\''
-        + ", signature='" + signature + '\''
-        + ", arguments=" + arguments
-        + ", type='" + type + '\''
-        + ", from='" + from + '\''
-        + ", to='" + to + '\''
-        + ", assetType='" + assetType + '\''
-        + ", value='" + value + '\''
-        + ", meta='" + meta + '\''
-        + ", subFunctions=" + subFunctions
-        + ", optionalProperties=" + optionalProperties
-        + ", blockNumber='" + blockNumber + '\''
-        + ", transactionHash='" + transactionHash + '\''
-        + ", timestamp='" + timestamp + '\''
-        + '}';
+    return "FunctionCall{" +
+        "name='" + name + '\'' +
+        ", hash='" + hash + '\'' +
+        ", signature='" + signature + '\'' +
+        ", arguments=" + arguments +
+        ", type='" + type + '\'' +
+        ", from='" + from + '\'' +
+        ", to='" + to + '\'' +
+        ", assetType='" + assetType + '\'' +
+        ", value='" + value + '\'' +
+        ", subFunctions=" + subFunctions +
+        ", blockNumber=" + blockNumber +
+        ", transactionHash='" + transactionHash + '\'' +
+        ", depth=" + depth +
+        ", index=" + index +
+        ", timestamp=" + timestamp +
+        ", meta=" + meta +
+        '}';
   }
 
   public static class Builder {
@@ -261,9 +251,8 @@ public class FunctionCall implements BlockchainEntity {
     private String to;
     private String assetType;
     private String value;
-    private String meta;
     private List<FunctionCall> subFunctions;
-    private Map<String, Object> optionalProperties;
+    private Map<String, Object> meta;
     private Long blockNumber;
     private String transactionHash;
     private Integer depth;
@@ -315,18 +304,13 @@ public class FunctionCall implements BlockchainEntity {
       return this;
     }
 
-    public FunctionCall.Builder meta(String meta) {
-      this.meta = meta;
-      return this;
-    }
-
     public FunctionCall.Builder subFunctions(List<FunctionCall> subFunctions) {
       this.subFunctions = subFunctions;
       return this;
     }
 
-    public FunctionCall.Builder optionalProperties(Map<String, Object> optionalProperties) {
-      this.optionalProperties = optionalProperties;
+    public FunctionCall.Builder meta(Map<String, Object> meta) {
+      this.meta = meta;
       return this;
     }
 
@@ -411,10 +395,10 @@ public class FunctionCall implements BlockchainEntity {
 
     @Override
     public String toString() {
-      return "Argument{"
-          + "name='" + name + '\''
-          + ", value='" + value + '\''
-          + '}';
+      return "Argument{" +
+          "name='" + name + '\'' +
+          ", value='" + value + '\'' +
+          '}';
     }
   }
 }

@@ -61,7 +61,7 @@ Block block = new Block.Builder()
   .build();
 ```
 
-In some cases you have parameters which don't fit the generic model. In order not to miss such parameters, you will use `optionalProperties` map
+In some cases you have parameters which don't fit the generic model. In order not to miss such parameters, you will use `meta` property
 
 ```java
 Map<String, Object> optionalProperties = new HashMap<>();
@@ -75,7 +75,7 @@ Block block = new Block.Builder()
   .gasUsed(new BigDecimal(100))
   .numTransactions(10)
   .timestamp(1533891660)
-  .optionalProperties(optionalProperties)
+  .meta(optionalProperties)
   .build();
 ```
 

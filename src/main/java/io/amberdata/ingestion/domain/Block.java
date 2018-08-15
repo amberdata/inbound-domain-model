@@ -11,10 +11,10 @@ public class Block implements BlockchainEntity {
   private String hash;
   private String parentHash;
   private BigDecimal gasUsed;
-  private Long timestamp;
   private Integer numTransactions;
+  private Long timestamp;
 
-  private Map<String, Object> optionalProperties;
+  private Map<String, Object> meta;
 
   public Block() {
   }
@@ -26,7 +26,7 @@ public class Block implements BlockchainEntity {
     this.gasUsed = builder.gasUsed;
     this.timestamp = builder.timestamp;
     this.numTransactions = builder.numTransactions;
-    this.optionalProperties = builder.optionalProperties;
+    this.meta = builder.meta;
   }
 
   public BigInteger getNumber() {
@@ -77,12 +77,12 @@ public class Block implements BlockchainEntity {
     this.numTransactions = numTransactions;
   }
 
-  public Map<String, Object> getOptionalProperties() {
-    return optionalProperties;
+  public Map<String, Object> getMeta() {
+    return meta;
   }
 
-  public void setOptionalProperties(Map<String, Object> optionalProperties) {
-    this.optionalProperties = optionalProperties;
+  public void setMeta(Map<String, Object> meta) {
+    this.meta = meta;
   }
 
   @Override
@@ -100,26 +100,26 @@ public class Block implements BlockchainEntity {
         && Objects.equals(gasUsed, block.gasUsed)
         && Objects.equals(timestamp, block.timestamp)
         && Objects.equals(numTransactions, block.numTransactions)
-        && Objects.equals(optionalProperties, block.optionalProperties);
+        && Objects.equals(meta, block.meta);
   }
 
   @Override
   public int hashCode() {
     return Objects
-        .hash(number, hash, parentHash, gasUsed, timestamp, numTransactions, optionalProperties);
+        .hash(number, hash, parentHash, gasUsed, timestamp, numTransactions, meta);
   }
 
   @Override
   public String toString() {
-    return "Block{"
-        + "number=" + number
-        + ", hash='" + hash + '\''
-        + ", parentHash='" + parentHash + '\''
-        + ", gasUsed=" + gasUsed
-        + ", timestamp=" + timestamp
-        + ", numTransactions=" + numTransactions
-        + ", optionalProperties=" + optionalProperties
-        + '}';
+    return "Block{" +
+        "number=" + number +
+        ", hash='" + hash + '\'' +
+        ", parentHash='" + parentHash + '\'' +
+        ", gasUsed=" + gasUsed +
+        ", numTransactions=" + numTransactions +
+        ", timestamp=" + timestamp +
+        ", meta=" + meta +
+        '}';
   }
 
   public static class Builder {
@@ -130,7 +130,7 @@ public class Block implements BlockchainEntity {
     private BigDecimal gasUsed;
     private Long timestamp;
     private Integer numTransactions;
-    private Map<String, Object> optionalProperties;
+    private Map<String, Object> meta;
 
     public Block.Builder number(BigInteger value) {
       this.number = value;
@@ -162,8 +162,8 @@ public class Block implements BlockchainEntity {
       return this;
     }
 
-    public Block.Builder optionalProperties(Map<String, Object> value) {
-      this.optionalProperties = value;
+    public Block.Builder meta(Map<String, Object> value) {
+      this.meta = value;
       return this;
     }
 
