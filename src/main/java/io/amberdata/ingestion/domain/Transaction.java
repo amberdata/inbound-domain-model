@@ -15,12 +15,12 @@ public class Transaction implements BlockchainEntity {
   private BigInteger gas;
   private BigInteger gasUsed;
   private Integer numLogs;
-  private Long timestamp;
   private List<FunctionCall> functionCalls;
   private String status;
   private BigDecimal value;
-  
-  private Map<String, Object> optionalProperties;
+  private Long timestamp;
+
+  private Map<String, Object> meta;
 
   public Transaction() {
   }
@@ -35,7 +35,7 @@ public class Transaction implements BlockchainEntity {
     this.numLogs = builder.numLogs;
     this.timestamp = builder.timestamp;
     this.functionCalls = builder.functionCalls;
-    this.optionalProperties = builder.optionalProperties;
+    this.meta = builder.meta;
   }
 
   public String getHash() {
@@ -110,12 +110,12 @@ public class Transaction implements BlockchainEntity {
     this.functionCalls = functionCalls;
   }
 
-  public Map<String, Object> getOptionalProperties() {
-    return optionalProperties;
+  public Map<String, Object> getMeta() {
+    return meta;
   }
 
-  public void setOptionalProperties(Map<String, Object> optionalProperties) {
-    this.optionalProperties = optionalProperties;
+  public void setMeta(Map<String, Object> meta) {
+    this.meta = meta;
   }
 
   public String getStatus() {
@@ -153,17 +153,20 @@ public class Transaction implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "Transaction{"
-        + "hash='" + hash + '\''
-        + ", nonce=" + nonce
-        + ", blockNumber=" + blockNumber
-        + ", from='" + from + '\''
-        + ", gas=" + gas
-        + ", gasUsed=" + gasUsed
-        + ", numLogs=" + numLogs
-        + ", timestamp=" + timestamp
-        + ", optionalProperties=" + optionalProperties
-        + '}';
+    return "Transaction{" +
+        "hash='" + hash + '\'' +
+        ", nonce=" + nonce +
+        ", blockNumber=" + blockNumber +
+        ", from='" + from + '\'' +
+        ", gas=" + gas +
+        ", gasUsed=" + gasUsed +
+        ", numLogs=" + numLogs +
+        ", functionCalls=" + functionCalls +
+        ", status='" + status + '\'' +
+        ", value=" + value +
+        ", timestamp=" + timestamp +
+        ", meta=" + meta +
+        '}';
   }
 
   public static class Builder {
@@ -179,7 +182,7 @@ public class Transaction implements BlockchainEntity {
     private List<FunctionCall> functionCalls;
     private String status;
     private BigDecimal value;
-    private Map<String, Object> optionalProperties;
+    private Map<String, Object> meta;
 
     public Transaction.Builder hash(String value) {
       this.hash = value;
@@ -236,8 +239,8 @@ public class Transaction implements BlockchainEntity {
       return this;
     }
 
-    public Transaction.Builder optionalProperties(Map<String, Object> value) {
-      this.optionalProperties = value;
+    public Transaction.Builder meta(Map<String, Object> value) {
+      this.meta = value;
       return this;
     }
 
