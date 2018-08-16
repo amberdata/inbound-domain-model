@@ -4,10 +4,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Address implements BlockchainEntity {
-
   private String hash;
   private Long timestamp;
-
   private Map<String, Object> meta;
 
   public Address() {
@@ -20,7 +18,7 @@ public class Address implements BlockchainEntity {
   }
 
   public String getHash() {
-    return hash;
+    return this.hash;
   }
 
   public void setHash(String hash) {
@@ -28,7 +26,7 @@ public class Address implements BlockchainEntity {
   }
 
   public Long getTimestamp() {
-    return timestamp;
+    return this.timestamp;
   }
 
   public void setTimestamp(Long timestamp) {
@@ -36,7 +34,7 @@ public class Address implements BlockchainEntity {
   }
 
   public Map<String, Object> getMeta() {
-    return meta;
+    return this.meta;
   }
 
   public void setMeta(Map<String, Object> meta) {
@@ -44,35 +42,36 @@ public class Address implements BlockchainEntity {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
+  public boolean equals(Object object) {
+    if (this == object) {
       return true;
     }
-    if (obj == null || getClass() != obj.getClass()) {
+    if (object == null || this.getClass() != object.getClass()) {
       return false;
     }
-    Address address = (Address) obj;
-    return Objects.equals(hash, address.hash)
-        && Objects.equals(timestamp, address.timestamp)
-        && Objects.equals(meta, address.meta);
+
+    Address that = (Address) object;
+    return
+        Objects.equals(this.hash, that.hash)
+          && Objects.equals(this.timestamp, that.timestamp)
+          && Objects.equals(this.meta, that.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hash, timestamp, meta);
+    return Objects.hash(this.hash, this.timestamp, this.meta);
   }
 
   @Override
   public String toString() {
     return "Address{"
-        + "hash='" + hash + '\''
-        + ", timestamp=" + timestamp
-        + ", meta=" + meta
+        + "hash='" + this.hash + '\''
+        + ", timestamp=" + this.timestamp
+        + ", meta=" + this.meta
         + '}';
   }
 
   public static class Builder {
-
     private String hash;
     private Long timestamp;
     private Map<String, Object> meta;
