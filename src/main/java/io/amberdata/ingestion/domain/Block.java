@@ -111,15 +111,15 @@ public class Block implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "Block{" +
-        "number=" + number +
-        ", hash='" + hash + '\'' +
-        ", parentHash='" + parentHash + '\'' +
-        ", gasUsed=" + gasUsed +
-        ", numTransactions=" + numTransactions +
-        ", timestamp=" + timestamp +
-        ", meta=" + meta +
-        '}';
+    return "Block{"
+        + "number=" + number
+        + ", hash='" + hash + '\''
+        + ", parentHash='" + parentHash + '\''
+        + ", gasUsed=" + gasUsed
+        + ", numTransactions=" + numTransactions
+        + ", timestamp=" + timestamp
+        + ", meta=" + meta
+        + '}';
   }
 
   public static class Builder {

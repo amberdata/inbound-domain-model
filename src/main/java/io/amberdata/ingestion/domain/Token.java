@@ -111,15 +111,15 @@ public class Token implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "Token{" +
-        "address='" + address + '\'' +
-        ", symbol='" + symbol + '\'' +
-        ", name='" + name + '\'' +
-        ", decimals=" + decimals +
-        ", erc20=" + erc20 +
-        ", erc721=" + erc721 +
-        ", meta=" + meta +
-        '}';
+    return "Token{"
+        + "address='" + address + '\''
+        + ", symbol='" + symbol + '\''
+        + ", name='" + name + '\''
+        + ", decimals=" + decimals
+        + ", erc20=" + erc20
+        + ", erc721=" + erc721
+        + ", meta=" + meta
+        + '}';
   }
 
   public static class Builder {

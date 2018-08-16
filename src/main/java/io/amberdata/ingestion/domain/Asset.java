@@ -61,7 +61,7 @@ public class Asset implements BlockchainEntity {
     this.amount = amount;
   }
 
-  public Map<String, Object> getMeta () {
+  public Map<String, Object> getMeta() {
     return meta;
   }
 
@@ -89,7 +89,7 @@ public class Asset implements BlockchainEntity {
     this.functionCallHash = functionCallHash;
   }
 
-  public void setMeta (Map<String, Object> meta) {
+  public void setMeta(Map<String, Object> meta) {
     this.meta = meta;
   }
 
@@ -115,16 +115,16 @@ public class Asset implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "Asset{" +
-        "type=" + type +
-        ", code='" + code + '\'' +
-        ", issuerAccount='" + issuerAccount + '\'' +
-        ", amount='" + amount + '\'' +
-        ", transactionHash='" + transactionHash + '\'' +
-        ", functionCallHash='" + functionCallHash + '\'' +
-        ", timestamp=" + timestamp +
-        ", meta=" + meta +
-        '}';
+    return "Asset{"
+        + "type=" + type
+        + ", code='" + code + '\''
+        + ", issuerAccount='" + issuerAccount + '\''
+        + ", amount='" + amount + '\''
+        + ", transactionHash='" + transactionHash + '\''
+        + ", functionCallHash='" + functionCallHash + '\''
+        + ", timestamp=" + timestamp
+        + ", meta=" + meta
+        + '}';
   }
 
   public static class Builder {

@@ -64,11 +64,11 @@ public class Address implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "Address{" +
-        "hash='" + hash + '\'' +
-        ", timestamp=" + timestamp +
-        ", meta=" + meta +
-        '}';
+    return "Address{"
+        + "hash='" + hash + '\''
+        + ", timestamp=" + timestamp
+        + ", meta=" + meta
+        + '}';
   }
 
   public static class Builder {
@@ -87,7 +87,7 @@ public class Address implements BlockchainEntity {
       return this;
     }
 
-    public Address.Builder meta (Map<String, Object> value) {
+    public Address.Builder meta(Map<String, Object> value) {
       this.meta = value;
       return this;
     }

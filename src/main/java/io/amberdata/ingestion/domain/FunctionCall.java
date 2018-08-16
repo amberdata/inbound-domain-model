@@ -220,24 +220,24 @@ public class FunctionCall implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "FunctionCall{" +
-        "name='" + name + '\'' +
-        ", hash='" + hash + '\'' +
-        ", signature='" + signature + '\'' +
-        ", arguments=" + arguments +
-        ", type='" + type + '\'' +
-        ", from='" + from + '\'' +
-        ", to='" + to + '\'' +
-        ", assetType='" + assetType + '\'' +
-        ", value='" + value + '\'' +
-        ", subFunctions=" + subFunctions +
-        ", blockNumber=" + blockNumber +
-        ", transactionHash='" + transactionHash + '\'' +
-        ", depth=" + depth +
-        ", index=" + index +
-        ", timestamp=" + timestamp +
-        ", meta=" + meta +
-        '}';
+    return "FunctionCall{"
+        + "name='" + name + '\''
+        + ", hash='" + hash + '\''
+        + ", signature='" + signature + '\''
+        + ", arguments=" + arguments
+        + ", type='" + type + '\''
+        + ", from='" + from + '\''
+        + ", to='" + to + '\''
+        + ", assetType='" + assetType + '\''
+        + ", value='" + value + '\''
+        + ", subFunctions=" + subFunctions
+        + ", blockNumber=" + blockNumber
+        + ", transactionHash='" + transactionHash + '\''
+        + ", depth=" + depth
+        + ", index=" + index
+        + ", timestamp=" + timestamp
+        + ", meta=" + meta
+        + '}';
   }
 
   public static class Builder {
@@ -395,10 +395,10 @@ public class FunctionCall implements BlockchainEntity {
 
     @Override
     public String toString() {
-      return "Argument{" +
-          "name='" + name + '\'' +
-          ", value='" + value + '\'' +
-          '}';
+      return "Argument{"
+          + "name='" + name + '\''
+          + ", value='" + value + '\''
+          + '}';
     }
   }
 }
