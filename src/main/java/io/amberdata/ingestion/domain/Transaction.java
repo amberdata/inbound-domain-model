@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Transaction implements BlockchainEntity {
-
   private String hash;
   private BigInteger nonce;
   private BigInteger blockNumber;
@@ -19,7 +18,6 @@ public class Transaction implements BlockchainEntity {
   private String status;
   private BigDecimal value;
   private Long timestamp;
-
   private Map<String, Object> meta;
 
   public Transaction() {
@@ -41,7 +39,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public String getHash() {
-    return hash;
+    return this.hash;
   }
 
   public void setHash(String hash) {
@@ -49,7 +47,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public BigInteger getNonce() {
-    return nonce;
+    return this.nonce;
   }
 
   public void setNonce(BigInteger nonce) {
@@ -57,7 +55,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public BigInteger getBlockNumber() {
-    return blockNumber;
+    return this.blockNumber;
   }
 
   public void setBlockNumber(BigInteger blockNumber) {
@@ -65,7 +63,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public String getFrom() {
-    return from;
+    return this.from;
   }
 
   public void setFrom(String from) {
@@ -73,7 +71,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public BigInteger getGas() {
-    return gas;
+    return this.gas;
   }
 
   public void setGas(BigInteger gas) {
@@ -81,7 +79,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public BigInteger getGasUsed() {
-    return gasUsed;
+    return this.gasUsed;
   }
 
   public void setGasUsed(BigInteger gasUsed) {
@@ -89,7 +87,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public Integer getNumLogs() {
-    return numLogs;
+    return this.numLogs;
   }
 
   public void setNumLogs(Integer numLogs) {
@@ -97,7 +95,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public Long getTimestamp() {
-    return timestamp;
+    return this.timestamp;
   }
 
   public void setTimestamp(Long timestamp) {
@@ -105,7 +103,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public List<FunctionCall> getFunctionCalls() {
-    return functionCalls;
+    return this.functionCalls;
   }
 
   public void setFunctionCalls(List<FunctionCall> functionCalls) {
@@ -113,7 +111,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public Map<String, Object> getMeta() {
-    return meta;
+    return this.meta;
   }
 
   public void setMeta(Map<String, Object> meta) {
@@ -121,7 +119,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public String getStatus() {
-    return status;
+    return this.status;
   }
 
   public void setStatus(String status) {
@@ -129,7 +127,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public BigDecimal getValue() {
-    return value;
+    return this.value;
   }
 
   public void setValue(BigDecimal value) {
@@ -137,42 +135,42 @@ public class Transaction implements BlockchainEntity {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
+  public boolean equals(Object object) {
+    if (this == object) {
       return true;
     }
-    if (obj == null || getClass() != obj.getClass()) {
+    if (object == null || this.getClass() != object.getClass()) {
       return false;
     }
-    Transaction that = (Transaction) obj;
-    return Objects.equals(hash, that.hash);
+
+    Transaction that = (Transaction) object;
+    return Objects.equals(this.hash, that.hash);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hash);
+    return Objects.hash(this.hash);
   }
 
   @Override
   public String toString() {
     return "Transaction{"
-        + "hash='" + hash + '\''
-        + ", nonce=" + nonce
-        + ", blockNumber=" + blockNumber
-        + ", from='" + from + '\''
-        + ", gas=" + gas
-        + ", gasUsed=" + gasUsed
-        + ", numLogs=" + numLogs
-        + ", functionCalls=" + functionCalls
-        + ", status='" + status + '\''
-        + ", value=" + value
-        + ", timestamp=" + timestamp
-        + ", meta=" + meta
+        + "hash='" + this.hash + '\''
+        + ", nonce=" + this.nonce
+        + ", blockNumber=" + this.blockNumber
+        + ", from='" + this.from + '\''
+        + ", gas=" + this.gas
+        + ", gasUsed=" + this.gasUsed
+        + ", numLogs=" + this.numLogs
+        + ", functionCalls=" + this.functionCalls
+        + ", status='" + this.status + '\''
+        + ", value=" + this.value
+        + ", timestamp=" + this.timestamp
+        + ", meta=" + this.meta
         + '}';
   }
 
   public static class Builder {
-
     private String hash;
     private BigInteger nonce;
     private BigInteger blockNumber;

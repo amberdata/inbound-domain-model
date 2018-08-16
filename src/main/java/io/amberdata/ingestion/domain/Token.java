@@ -5,14 +5,12 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Token implements BlockchainEntity {
-
   private String address;
   private String symbol;
   private String name;
   private BigDecimal decimals;
   private boolean erc20;
   private boolean erc721;
-
   private Map<String, Object> meta;
 
   public Token() {
@@ -25,12 +23,11 @@ public class Token implements BlockchainEntity {
     this.decimals = builder.decimals;
     this.erc20 = builder.erc20;
     this.erc721 = builder.erc721;
-
     this.meta = builder.meta;
   }
 
   public String getAddress() {
-    return address;
+    return this.address;
   }
 
   public void setAddress(String address) {
@@ -38,7 +35,7 @@ public class Token implements BlockchainEntity {
   }
 
   public String getSymbol() {
-    return symbol;
+    return this.symbol;
   }
 
   public void setSymbol(String symbol) {
@@ -46,7 +43,7 @@ public class Token implements BlockchainEntity {
   }
 
   public String getName() {
-    return name;
+    return this.name;
   }
 
   public void setName(String name) {
@@ -54,7 +51,7 @@ public class Token implements BlockchainEntity {
   }
 
   public BigDecimal getDecimals() {
-    return decimals;
+    return this.decimals;
   }
 
   public void setDecimals(BigDecimal decimals) {
@@ -62,7 +59,7 @@ public class Token implements BlockchainEntity {
   }
 
   public boolean isErc20() {
-    return erc20;
+    return this.erc20;
   }
 
   public void setErc20(boolean erc20) {
@@ -70,7 +67,7 @@ public class Token implements BlockchainEntity {
   }
 
   public boolean isErc721() {
-    return erc721;
+    return this.erc721;
   }
 
   public void setErc721(boolean erc721) {
@@ -78,7 +75,7 @@ public class Token implements BlockchainEntity {
   }
 
   public Map<String, Object> getMeta() {
-    return meta;
+    return this.meta;
   }
 
   public void setMeta(Map<String, Object> meta) {
@@ -86,51 +83,57 @@ public class Token implements BlockchainEntity {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
+  public boolean equals(Object object) {
+    if (this == object) {
       return true;
     }
 
-    if (obj == null || getClass() != obj.getClass()) {
+    if (object == null || this.getClass() != object.getClass()) {
       return false;
     }
-    Token token = (Token) obj;
-    return erc20 == token.erc20
-        && erc721 == token.erc721
-        && Objects.equals(address, token.address)
-        && Objects.equals(symbol, token.symbol)
-        && Objects.equals(name, token.name)
-        && Objects.equals(decimals, token.decimals)
-        && Objects.equals(meta, token.meta);
+    Token that = (Token) object;
+    return this.erc20 == that.erc20
+        && this.erc721 == that.erc721
+        && Objects.equals(this.address, that.address)
+        && Objects.equals(this.symbol, that.symbol)
+        && Objects.equals(this.name, that.name)
+        && Objects.equals(this.decimals, that.decimals)
+        && Objects.equals(this.meta, that.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, symbol, name, decimals, erc20, erc721, meta);
+    return Objects.hash(
+        this.address,
+        this.symbol,
+        this.name,
+        this.decimals,
+        this.erc20,
+        this.erc721,
+        this.meta
+    );
   }
 
   @Override
   public String toString() {
     return "Token{"
-        + "address='" + address + '\''
-        + ", symbol='" + symbol + '\''
-        + ", name='" + name + '\''
-        + ", decimals=" + decimals
-        + ", erc20=" + erc20
-        + ", erc721=" + erc721
-        + ", meta=" + meta
+        + "address='" + this.address + '\''
+        + ", symbol='" + this.symbol + '\''
+        + ", name='" + this.name + '\''
+        + ", decimals=" + this.decimals
+        + ", erc20=" + this.erc20
+        + ", erc721=" + this.erc721
+        + ", meta=" + this.meta
         + '}';
   }
 
   public static class Builder {
-
     private String address;
     private String symbol;
     private String name;
     private BigDecimal decimals;
     private boolean erc20;
     private boolean erc721;
-
     private Map<String, Object> meta;
 
     public Builder address(String value) {

@@ -11,7 +11,6 @@ public class Asset implements BlockchainEntity {
   private String transactionHash;
   private String functionCallHash;
   private Long timestamp;
-
   private Map<String, Object> meta;
 
   public Asset() {
@@ -25,12 +24,11 @@ public class Asset implements BlockchainEntity {
     this.timestamp = builder.timestamp;
     this.transactionHash = builder.transactionHash;
     this.functionCallHash = builder.functionCallHash;
-
     this.meta = builder.meta;
   }
 
   public AssetType getType() {
-    return type;
+    return this.type;
   }
 
   public void setType(AssetType type) {
@@ -38,7 +36,7 @@ public class Asset implements BlockchainEntity {
   }
 
   public String getCode() {
-    return code;
+    return this.code;
   }
 
   public void setCode(String code) {
@@ -46,7 +44,7 @@ public class Asset implements BlockchainEntity {
   }
 
   public String getIssuerAccount() {
-    return issuerAccount;
+    return this.issuerAccount;
   }
 
   public void setIssuerAccount(String issuerAccount) {
@@ -54,7 +52,7 @@ public class Asset implements BlockchainEntity {
   }
 
   public String getAmount() {
-    return amount;
+    return this.amount;
   }
 
   public void setAmount(String amount) {
@@ -62,11 +60,11 @@ public class Asset implements BlockchainEntity {
   }
 
   public Map<String, Object> getMeta() {
-    return meta;
+    return this.meta;
   }
 
   public Long getTimestamp() {
-    return timestamp;
+    return this.timestamp;
   }
 
   public void setTimestamp(Long timestamp) {
@@ -74,7 +72,7 @@ public class Asset implements BlockchainEntity {
   }
 
   public String getTransactionHash() {
-    return transactionHash;
+    return this.transactionHash;
   }
 
   public void setTransactionHash(String transactionHash) {
@@ -82,7 +80,7 @@ public class Asset implements BlockchainEntity {
   }
 
   public String getFunctionCallHash() {
-    return functionCallHash;
+    return this.functionCallHash;
   }
 
   public void setFunctionCallHash(String functionCallHash) {
@@ -94,36 +92,37 @@ public class Asset implements BlockchainEntity {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
+  public boolean equals(Object object) {
+    if (this == object) {
       return true;
     }
 
-    if (obj == null || getClass() != obj.getClass()) {
+    if (object == null || this.getClass() != object.getClass()) {
       return false;
     }
-    Asset asset = (Asset) obj;
-    return type == asset.type
-        && Objects.equals(code, asset.code)
-        && Objects.equals(issuerAccount, asset.issuerAccount);
+
+    Asset that = (Asset) object;
+    return this.type == that.type
+        && Objects.equals(this.code, that.code)
+        && Objects.equals(this.issuerAccount, that.issuerAccount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, code, issuerAccount);
+    return Objects.hash(this.type, this.code, this.issuerAccount);
   }
 
   @Override
   public String toString() {
     return "Asset{"
-        + "type=" + type
-        + ", code='" + code + '\''
-        + ", issuerAccount='" + issuerAccount + '\''
-        + ", amount='" + amount + '\''
-        + ", transactionHash='" + transactionHash + '\''
-        + ", functionCallHash='" + functionCallHash + '\''
-        + ", timestamp=" + timestamp
-        + ", meta=" + meta
+        + "type=" + this.type
+        + ", code='" + this.code + '\''
+        + ", issuerAccount='" + this.issuerAccount + '\''
+        + ", amount='" + this.amount + '\''
+        + ", transactionHash='" + this.transactionHash + '\''
+        + ", functionCallHash='" + this.functionCallHash + '\''
+        + ", timestamp=" + this.timestamp
+        + ", meta=" + this.meta
         + '}';
   }
 

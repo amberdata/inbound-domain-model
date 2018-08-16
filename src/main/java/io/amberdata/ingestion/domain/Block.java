@@ -6,14 +6,12 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Block implements BlockchainEntity {
-
   private BigInteger number;
   private String hash;
   private String parentHash;
   private BigDecimal gasUsed;
   private Integer numTransactions;
   private Long timestamp;
-
   private Map<String, Object> meta;
 
   public Block() {
@@ -30,7 +28,7 @@ public class Block implements BlockchainEntity {
   }
 
   public BigInteger getNumber() {
-    return number;
+    return this.number;
   }
 
   public void setNumber(BigInteger number) {
@@ -38,7 +36,7 @@ public class Block implements BlockchainEntity {
   }
 
   public String getHash() {
-    return hash;
+    return this.hash;
   }
 
   public void setHash(String hash) {
@@ -46,7 +44,7 @@ public class Block implements BlockchainEntity {
   }
 
   public String getParentHash() {
-    return parentHash;
+    return this.parentHash;
   }
 
   public void setParentHash(String parentHash) {
@@ -54,7 +52,7 @@ public class Block implements BlockchainEntity {
   }
 
   public BigDecimal getGasUsed() {
-    return gasUsed;
+    return this.gasUsed;
   }
 
   public void setGasUsed(BigDecimal gasUsed) {
@@ -62,7 +60,7 @@ public class Block implements BlockchainEntity {
   }
 
   public Long getTimestamp() {
-    return timestamp;
+    return this.timestamp;
   }
 
   public void setTimestamp(Long timestamp) {
@@ -70,7 +68,7 @@ public class Block implements BlockchainEntity {
   }
 
   public Integer getNumTransactions() {
-    return numTransactions;
+    return this.numTransactions;
   }
 
   public void setNumTransactions(Integer numTransactions) {
@@ -78,7 +76,7 @@ public class Block implements BlockchainEntity {
   }
 
   public Map<String, Object> getMeta() {
-    return meta;
+    return this.meta;
   }
 
   public void setMeta(Map<String, Object> meta) {
@@ -86,44 +84,51 @@ public class Block implements BlockchainEntity {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (this == obj) {
+  public boolean equals(Object object) {
+    if (this == object) {
       return true;
     }
-    if (obj == null || getClass() != obj.getClass()) {
+    if (object == null || this.getClass() != object.getClass()) {
       return false;
     }
-    Block block = (Block) obj;
-    return Objects.equals(number, block.number)
-        && Objects.equals(hash, block.hash)
-        && Objects.equals(parentHash, block.parentHash)
-        && Objects.equals(gasUsed, block.gasUsed)
-        && Objects.equals(timestamp, block.timestamp)
-        && Objects.equals(numTransactions, block.numTransactions)
-        && Objects.equals(meta, block.meta);
+
+    Block that = (Block) object;
+    return Objects.equals(this.number, that.number)
+        && Objects.equals(this.hash, that.hash)
+        && Objects.equals(this.parentHash, that.parentHash)
+        && Objects.equals(this.gasUsed, that.gasUsed)
+        && Objects.equals(this.timestamp, that.timestamp)
+        && Objects.equals(this.numTransactions, that.numTransactions)
+        && Objects.equals(this.meta, that.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects
-        .hash(number, hash, parentHash, gasUsed, timestamp, numTransactions, meta);
+    return Objects.hash(
+        this.number,
+        this.hash,
+        this.parentHash,
+        this.gasUsed,
+        this.timestamp,
+        this.numTransactions,
+        this.meta
+    );
   }
 
   @Override
   public String toString() {
     return "Block{"
-        + "number=" + number
-        + ", hash='" + hash + '\''
-        + ", parentHash='" + parentHash + '\''
-        + ", gasUsed=" + gasUsed
-        + ", numTransactions=" + numTransactions
-        + ", timestamp=" + timestamp
-        + ", meta=" + meta
+        + "number=" + this.number
+        + ", hash='" + this.hash + '\''
+        + ", parentHash='" + this.parentHash + '\''
+        + ", gasUsed=" + this.gasUsed
+        + ", numTransactions=" + this.numTransactions
+        + ", timestamp=" + this.timestamp
+        + ", meta=" + this.meta
         + '}';
   }
 
   public static class Builder {
-
     private BigInteger number;
     private String hash;
     private String parentHash;
