@@ -19,6 +19,7 @@ public class FunctionCall implements BlockchainEntity {
   private String transactionHash;
   private Integer depth;
   private Integer index;
+  private String result;
   private Long timestamp;
   private Map<String, Object> meta;
 
@@ -41,6 +42,7 @@ public class FunctionCall implements BlockchainEntity {
     this.transactionHash = builder.transactionHash;
     this.depth = builder.depth;
     this.index = builder.index;
+    this.result = builder.result;
     this.timestamp = builder.timestamp;
   }
 
@@ -164,6 +166,14 @@ public class FunctionCall implements BlockchainEntity {
     this.index = index;
   }
 
+  public String getResult() {
+    return this.result;
+  }
+
+  public void setResult(String result) {
+    this.result = result;
+  }
+
   public Long getTimestamp() {
     return this.timestamp;
   }
@@ -195,6 +205,7 @@ public class FunctionCall implements BlockchainEntity {
         && Objects.equals(this.meta, that.meta)
         && Objects.equals(this.blockNumber, that.blockNumber)
         && Objects.equals(this.transactionHash, that.transactionHash)
+        && Objects.equals(this.result, that.result)
         && Objects.equals(this.timestamp, that.timestamp);
   }
 
@@ -213,6 +224,7 @@ public class FunctionCall implements BlockchainEntity {
         this.meta,
         this.blockNumber,
         this.transactionHash,
+        this.result,
         this.timestamp
     );
   }
@@ -234,6 +246,7 @@ public class FunctionCall implements BlockchainEntity {
         + ", transactionHash='" + this.transactionHash + '\''
         + ", depth=" + this.depth
         + ", index=" + this.index
+        + ", result=" + this.result
         + ", timestamp=" + this.timestamp
         + ", meta=" + this.meta
         + '}';
@@ -255,6 +268,7 @@ public class FunctionCall implements BlockchainEntity {
     private String transactionHash;
     private Integer depth;
     private Integer index;
+    private String result;
     private Long timestamp;
 
     public FunctionCall.Builder name(String name) {
@@ -329,6 +343,11 @@ public class FunctionCall implements BlockchainEntity {
 
     public FunctionCall.Builder index(Integer value) {
       this.index = value;
+      return this;
+    }
+
+    public FunctionCall.Builder result(String value) {
+      this.result = value;
       return this;
     }
 
