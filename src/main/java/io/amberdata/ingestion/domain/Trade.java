@@ -171,21 +171,21 @@ public class Trade implements BlockchainEntity {
       return false;
     }
     Trade trade = (Trade) object;
-    return Objects.equals(type, trade.type) &&
-        Objects.equals(buyAddress, trade.buyAddress) &&
-        Objects.equals(buyAsset, trade.buyAsset) &&
-        Objects.equals(buyAmount, trade.buyAmount) &&
-        Objects.equals(sellAddress, trade.sellAddress) &&
-        Objects.equals(sellAsset, trade.sellAsset) &&
-        Objects.equals(sellAmount, trade.sellAmount) &&
-        Objects.equals(fee, trade.fee) &&
-        Objects.equals(timestamp, trade.timestamp) &&
-        Objects.equals(timestampNanoseconds, trade.timestampNanoseconds) &&
-        Objects.equals(orderId, trade.orderId) &&
-        Objects.equals(blockNumber, trade.blockNumber) &&
-        Objects.equals(transactionHash, trade.transactionHash) &&
-        Objects.equals(functionCallHash, trade.functionCallHash) &&
-        Objects.equals(meta, trade.meta);
+    return Objects.equals(type, trade.type)
+        && Objects.equals(buyAddress, trade.buyAddress)
+        && Objects.equals(buyAsset, trade.buyAsset)
+        && Objects.equals(buyAmount, trade.buyAmount)
+        && Objects.equals(sellAddress, trade.sellAddress)
+        && Objects.equals(sellAsset, trade.sellAsset)
+        && Objects.equals(sellAmount, trade.sellAmount)
+        && Objects.equals(fee, trade.fee)
+        && Objects.equals(timestamp, trade.timestamp)
+        && Objects.equals(timestampNanoseconds, trade.timestampNanoseconds)
+        && Objects.equals(orderId, trade.orderId)
+        && Objects.equals(blockNumber, trade.blockNumber)
+        && Objects.equals(transactionHash, trade.transactionHash)
+        && Objects.equals(functionCallHash, trade.functionCallHash)
+        && Objects.equals(meta, trade.meta);
   }
 
   @Override
@@ -199,23 +199,23 @@ public class Trade implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "Trade{" +
-        "type=" + type +
-        ", buyAddress='" + buyAddress + '\'' +
-        ", buyAsset='" + buyAsset + '\'' +
-        ", buyAmount=" + buyAmount +
-        ", sellAddress='" + sellAddress + '\'' +
-        ", sellAsset='" + sellAsset + '\'' +
-        ", sellAmount=" + sellAmount +
-        ", fee=" + fee +
-        ", timestamp=" + timestamp +
-        ", timestampNanoseconds=" + timestampNanoseconds +
-        ", orderId='" + orderId + '\'' +
-        ", blockNumber=" + blockNumber +
-        ", transactionHash='" + transactionHash + '\'' +
-        ", functionCallHash='" + functionCallHash + '\'' +
-        ", meta=" + meta +
-        '}';
+    return "Trade{"
+        + "type=" + type
+        + ", buyAddress='" + buyAddress + '\''
+        + ", buyAsset='" + buyAsset + '\''
+        + ", buyAmount=" + buyAmount
+        + ", sellAddress='" + sellAddress + '\''
+        + ", sellAsset='" + sellAsset + '\''
+        + ", sellAmount=" + sellAmount
+        + ", fee=" + fee
+        + ", timestamp=" + timestamp
+        + ", timestampNanoseconds=" + timestampNanoseconds
+        + ", orderId='" + orderId + '\''
+        + ", blockNumber=" + blockNumber
+        + ", transactionHash='" + transactionHash + '\''
+        + ", functionCallHash='" + functionCallHash + '\''
+        + ", meta=" + meta
+        + '}';
   }
 
   public static class Builder {

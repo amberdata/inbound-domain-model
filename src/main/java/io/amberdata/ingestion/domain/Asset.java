@@ -196,6 +196,11 @@ public class Asset implements BlockchainEntity {
       this.name = name;
     }
 
+    /**
+     * Creates an AssetType object by its string name
+     * @param name name of the asset used in stellar network
+     * @return an object of AssetType
+     */
     public static AssetType fromName(String name) {
       for (AssetType assetType : values()) {
         if (assetType.getName().equals(name)) {
