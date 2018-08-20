@@ -181,23 +181,23 @@ public class Order implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "Order{" +
-        "type=" + type +
-        ", orderId='" + orderId + '\'' +
-        ", buyAsset='" + buyAsset + '\'' +
-        ", sellAsset='" + sellAsset + '\'' +
-        ", buyAmount=" + buyAmount +
-        ", sellAmount=" + sellAmount +
-        ", expirationMs=" + expirationMs +
-        ", expirationNanoseconds=" + expirationNanoseconds +
-        ", makerAddress='" + makerAddress + '\'' +
-        ", timestamp=" + timestamp +
-        ", timestampNanoseconds=" + timestampNanoseconds +
-        ", blockNumber=" + blockNumber +
-        ", transactionHash='" + transactionHash + '\'' +
-        ", functionCallHash='" + functionCallHash + '\'' +
-        ", meta=" + meta +
-        '}';
+    return "Order{"
+        + "type=" + type
+        + ", orderId='" + orderId + '\''
+        + ", buyAsset='" + buyAsset + '\''
+        + ", sellAsset='" + sellAsset + '\''
+        + ", buyAmount=" + buyAmount
+        + ", sellAmount=" + sellAmount
+        + ", expirationMs=" + expirationMs
+        + ", expirationNanoseconds=" + expirationNanoseconds
+        + ", makerAddress='" + makerAddress + '\''
+        + ", timestamp=" + timestamp
+        + ", timestampNanoseconds=" + timestampNanoseconds
+        + ", blockNumber=" + blockNumber
+        + ", transactionHash='" + transactionHash + '\''
+        + ", functionCallHash='" + functionCallHash + '\''
+        + ", meta=" + meta
+        + '}';
   }
 
   public static class Builder {
