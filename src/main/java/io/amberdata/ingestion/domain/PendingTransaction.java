@@ -10,27 +10,30 @@ public class PendingTransaction implements BlockchainEntity {
   public static final String PROPERTY_R = "r";
   public static final String PROPERTY_S = "s";
   public static final String PROPERTY_V = "v";
-  public static final String PROPERTY_CREATES = "creates";
-  public static final String PROPERTY_PUBLIC_KEY = "publicKey";
-  public static final String PROPERTY_RAW = "raw";
 
   private String hash;
-  private BigInteger nonce;
-  private String blockHash;
   private BigInteger blockNumber;
-  private Long transactionIndex;
+  private String blockHash;
+  private String creates;
   private String from;
+  private BigInteger gas;
+  private BigInteger gasPrice;
+  private Long transactionIndex;
+  private String input;
+  private BigInteger nonce;
+  private String publicKey;
+  private String raw;
   private String to;
   private BigDecimal value;
-  private String input;
-  private BigInteger gasPrice;
-  private BigInteger gas;
+  private Map<String, Object> meta;
+
   private Long createdAt;
   private Long createdAtNanoseconds;
-  private Map<String, Object> meta;
 
   private String confirmedHash;
   private Long confirmedAt;
+  private Long confirmedAtNanoseconds;
+
   private Integer state;
 
   public PendingTransaction() {
@@ -39,21 +42,28 @@ public class PendingTransaction implements BlockchainEntity {
 
   private PendingTransaction(Builder builder) {
     this.hash = builder.hash;
-    this.nonce = builder.nonce;
-    this.blockHash = builder.blockHash;
     this.blockNumber = builder.blockNumber;
-    this.transactionIndex = builder.transactionIndex;
+    this.blockHash = builder.blockHash;
+    this.creates = builder.creates;
     this.from = builder.from;
+    this.gas = builder.gas;
+    this.gasPrice = builder.gasPrice;
+    this.transactionIndex = builder.transactionIndex;
+    this.input = builder.input;
+    this.nonce = builder.nonce;
+    this.publicKey = builder.publicKey;
+    this.raw = builder.raw;
     this.to = builder.to;
     this.value = builder.value;
-    this.input = builder.input;
-    this.gasPrice = builder.gasPrice;
-    this.gas = builder.gas;
+    this.meta = builder.meta;
+
     this.createdAt = builder.createdAt;
     this.createdAtNanoseconds = builder.createdAtNanoseconds;
-    this.meta = builder.meta;
+
     this.confirmedHash = builder.confirmedHash;
     this.confirmedAt = builder.confirmedAt;
+    this.confirmedAtNanoseconds = builder.confirmedAtNanoseconds;
+
     this.state = builder.state;
   }
 
@@ -193,6 +203,38 @@ public class PendingTransaction implements BlockchainEntity {
     this.state = state;
   }
 
+  public String getCreates() {
+    return creates;
+  }
+
+  public void setCreates(String creates) {
+    this.creates = creates;
+  }
+
+  public String getPublicKey() {
+    return publicKey;
+  }
+
+  public void setPublicKey(String publicKey) {
+    this.publicKey = publicKey;
+  }
+
+  public String getRaw() {
+    return raw;
+  }
+
+  public void setRaw(String raw) {
+    this.raw = raw;
+  }
+
+  public Long getConfirmedAtNanoseconds() {
+    return confirmedAtNanoseconds;
+  }
+
+  public void setConfirmedAtNanoseconds(Long confirmedAtNanoseconds) {
+    this.confirmedAtNanoseconds = confirmedAtNanoseconds;
+  }
+
   @Override
   public boolean equals(Object object) {
     if (this == object) {
@@ -215,22 +257,28 @@ public class PendingTransaction implements BlockchainEntity {
   public static class Builder {
 
     private String hash;
-    private BigInteger nonce;
-    private String blockHash;
     private BigInteger blockNumber;
-    private Long transactionIndex;
+    private String blockHash;
+    private String creates;
     private String from;
+    private BigInteger gas;
+    private BigInteger gasPrice;
+    private Long transactionIndex;
+    private String input;
+    private BigInteger nonce;
+    private String publicKey;
+    private String raw;
     private String to;
     private BigDecimal value;
-    private String input;
-    private BigInteger gasPrice;
-    private BigInteger gas;
+    private Map<String, Object> meta;
+
     private Long createdAt;
     private Long createdAtNanoseconds;
-    private Map<String, Object> meta;
 
     private String confirmedHash;
     private Long confirmedAt;
+    private Long confirmedAtNanoseconds;
+
     private Integer state;
 
     public Builder hash(String aValue) {
@@ -313,8 +361,29 @@ public class PendingTransaction implements BlockchainEntity {
       return this;
     }
 
-    public void state(Integer aValue) {
+    public Builder confirmedAtNanoseconds(Long aValue) {
+      this.confirmedAtNanoseconds = aValue;
+      return this;
+    }
+
+    public Builder state(Integer aValue) {
       this.state = aValue;
+      return this;
+    }
+
+    public Builder creates(String aValue) {
+      this.creates = aValue;
+      return this;
+    }
+
+    public Builder publicKey(String aValue) {
+      this.publicKey = aValue;
+      return this;
+    }
+
+    public Builder raw(String aValue) {
+      this.raw = aValue;
+      return this;
     }
 
     public PendingTransaction build() {
