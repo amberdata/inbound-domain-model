@@ -1,21 +1,17 @@
-## Amberdata Ingestion API
+# Amberdata Ingestion API
 
-Not every blockchain has exactly the same entities in its domain model... On the other hand mostly all of them have commonalities. If not same names but similar meaning. 
+The Amberdata Ingestion Domain Model defines the different entities and object models that 3rd parties can use to push data into the Amberdata platform.
 
-The idea behind the Amberdata Ingestion API domain model is to gather all similarities 
-into generic entities which represent blockchain metrics and bridge them to the [REST API](https://blockchains.amberdata.io/api/v1/spec)
+After working with and researching a few different blockchains (Ethereum, Aion, Stellar, etc)  we have found some commonalities (and differences!) between them, and this project is the result.
 
+Once ingested into the Amberdata platform, these entities are processed by our backend pipeline, where we combine these data sources with off-chain data, extract metrics, and provide insights, analytics and monitoring into your blockchain.
 
-### Ingestion API domain model
-
-Ingestion API domain model contains a collection of generic entities.
+A full Swagger documentation of the REST API is available [here](https://blockchains.amberdata.io/api/v1/spec).
 
 
-### Getting it
+# How to use it (Gradle or Maven)
 
-#### With Gradle or Maven
-
-> here should be instructions of how to add maven repository which contains ingestion-domain-model artifact
+> Here should be instructions of how to add maven repository which contains ingestion-domain-model artifact
 
 Add a dependency to your `pom.xml` 
 
@@ -36,15 +32,15 @@ dependencies {
 }
 ```
 
-#### Build
+# Build locally
 
 ```sh
 $ git clone https://github.com/amberdata/ingestion-domain-model.git
 $ cd ingestion-domain-model
-$ ./mvnw clean install
+$ mvn clean install
 ```
 
-### Getting Started
+# Getting Started
 
 To populate and create an entity you will use Builder methods of the entity class
 
@@ -79,3 +75,9 @@ Block block = new Block.Builder()
   .build();
 ```
 
+
+# Licensing
+
+This project is licensed under the [Apache Licence 2.0](./LICENSE).
+
+See also [Contributing](./CONTRIBUTING.md)
