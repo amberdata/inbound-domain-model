@@ -19,8 +19,7 @@ Please sign the [Contributor License Agreement](https://docs.google.com/forms/d/
 This form is also available [here](https://s3.us-east-2.amazonaws.com/amberdata-public/docs/icla.pdf) in PDF format. 
 
 Submit a pull request rebased on top of master
-
  * Include a descriptive commit message.
  * Changes contributed via pull request should focus on a single issue at a time.
- 
-At this point you're waiting on us. We like to at least comment on pull requests within one week (and, typically, three business days). We may suggest some changes or improvements or alternatives.
+
+Please allow a few business days for us to comment on your PR, depending on the number of open PRs.
