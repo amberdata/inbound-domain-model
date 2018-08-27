@@ -9,7 +9,7 @@
 
   <groupId>io.amberdata.ingestion</groupId>
   <artifactId>ingestion-domain</artifactId>
-  <version>0.1.5</version>
+  <version>0.1.6</version>
   <packaging>jar</packaging>
 
   <name>ingestion-domain</name>
@@ -34,29 +34,16 @@
     <java.version>1.8</java.version>
   </properties>
 
-  <repositories>
-    <repository>
-      <id>central</id>
-      <url>http://nexus.amberdata.internal:8081/repository/maven-public/</url>
-    </repository>
-  </repositories>
-
-  <distributionManagement>
-    <!-- Publish the versioned releases here -->
-    <repository>
-      <id>nexus-release</id>
-      <name>Release Repo</name>
-      <url>http://nexus.amberdata.internal:8081/repository/mvn-releases</url>
-    </repository>
-
-    <snapshotRepository>
-      <id>nexus</id>
-      <name>Snapshot Repo</name>
-      <url>http://nexus.amberdata.internal:8081/repository/mvn-snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
-
   <build>
+    <!-- Publishing to Amberdata S3 Maven repository -->
+    <extensions>
+      <extension>
+        <groupId>org.springframework.build</groupId>
+        <artifactId>aws-maven</artifactId>
+        <version>5.0.0.RELEASE</version>
+      </extension>
+    </extensions>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -111,27 +98,132 @@
           <skip>true</skip>
         </configuration>
       </plugin>
-
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.8</version>
-        <extensions>true</extensions>
-        <executions>
-          <execution>
-            <id>default-deploy</id>
-            <phase>deploy</phase>
-            <goals>
-              <goal>deploy</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <serverId>nexus</serverId>
-          <nexusUrl>http://nexus.amberdata.internal:8081/</nexusUrl>
-          <skipStaging>true</skipStaging>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>repository_amberdata_nexus</id>
+
+      <activation>
+        <property>
+          <name>repository_amberdata_nexus.activate</name>
+        </property>
+      </activation>
+
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://nexus.amberdata.internal:8081/repository/maven-public/</url>
+        </repository>
+      </repositories>
+
+      <distributionManagement>
+        <repository>
+          <id>nexus-release</id>
+          <name>Release Repo</name>
+          <url>http://nexus.amberdata.internal:8081/repository/mvn-releases</url>
+        </repository>
+
+        <snapshotRepository>
+          <id>nexus</id>
+          <name>Snapshot Repo</name>
+          <url>http://nexus.amberdata.internal:8081/repository/mvn-snapshots</url>
+        </snapshotRepository>
+      </distributionManagement>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.8</version>
+
+            <extensions>true</extensions>
+
+            <executions>
+              <execution>
+                <id>default-deploy</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>deploy</goal>
+                </goals>
+              </execution>
+            </executions>
+
+            <configuration>
+              <serverId>nexus</serverId>
+              <nexusUrl>http://nexus.amberdata.internal:8081/</nexusUrl>
+              <skipStaging>true</skipStaging>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>repository_amberdata_s3</id>
+
+      <activation>
+        <property>
+          <name>repository_amberdata_s3.activate</name>
+        </property>
+      </activation>
+
+      <distributionManagement>
+        <repository>
+          <id>maven-s3-release-repo</id>
+          <name>AWS Release Repository</name>
+          <url>s3://amberdata-opensource/releases</url>
+        </repository>
+
+        <snapshotRepository>
+          <id>maven-s3-snapshot-repo</id>
+          <name>AWS Snapshot Repository</name>
+          <url>s3://amberdata-opensource/snapshots</url>
+        </snapshotRepository>
+      </distributionManagement>
+    </profile>
+
+    <profile>
+      <id>repository_sonatype</id>
+
+      <activation>
+        <property>
+          <name>repository_sonatype.activate</name>
+        </property>
+      </activation>
+
+      <distributionManagement>
+        <repository>
+          <id>ossrh</id>
+          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+
+        <snapshotRepository>
+          <id>ossrh</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+      </distributionManagement>
+
+      <build>
+        <plugins>
+          <!-- Publishing to Sonatype -->
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.7</version>
+
+            <extensions>true</extensions>
+
+            <configuration>
+              <serverId>ossrh</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
