@@ -11,6 +11,7 @@ public class Transaction implements BlockchainEntity {
   private BigInteger nonce;
   private BigInteger blockNumber;
   private String from;
+  private String to;
   private BigInteger gas;
   private BigInteger gasUsed;
   private Integer numLogs;
@@ -28,6 +29,7 @@ public class Transaction implements BlockchainEntity {
     this.nonce = builder.nonce;
     this.blockNumber = builder.blockNumber;
     this.from = builder.from;
+    this.to = builder.to;
     this.gas = builder.gas;
     this.gasUsed = builder.gasUsed;
     this.numLogs = builder.numLogs;
@@ -70,6 +72,10 @@ public class Transaction implements BlockchainEntity {
     this.from = from;
   }
 
+  public void setTo(String to) {
+    this.to = to;
+  }
+  
   public BigInteger getGas() {
     return this.gas;
   }
@@ -159,6 +165,7 @@ public class Transaction implements BlockchainEntity {
         + ", nonce=" + this.nonce
         + ", blockNumber=" + this.blockNumber
         + ", from='" + this.from + '\''
+        + ", to='" + this.to + '\''
         + ", gas=" + this.gas
         + ", gasUsed=" + this.gasUsed
         + ", numLogs=" + this.numLogs
@@ -175,6 +182,7 @@ public class Transaction implements BlockchainEntity {
     private BigInteger nonce;
     private BigInteger blockNumber;
     private String from;
+    private String to;
     private BigInteger gas;
     private BigInteger gasUsed;
     private Integer numLogs;
@@ -204,6 +212,11 @@ public class Transaction implements BlockchainEntity {
       return this;
     }
 
+    public Transaction.Builder to(String value) {
+      this.to = value;
+      return this;
+    }
+    
     public Transaction.Builder gas(BigInteger value) {
       this.gas = value;
       return this;
