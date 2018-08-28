@@ -9,7 +9,7 @@
 
   <groupId>io.amberdata.ingestion</groupId>
   <artifactId>ingestion-domain</artifactId>
-  <version>0.1.11</version>
+  <version>0.1.12</version>
   <packaging>jar</packaging>
 
   <name>ingestion-domain</name>
