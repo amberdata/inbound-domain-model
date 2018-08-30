@@ -33,8 +33,6 @@ public class Uncle implements BlockchainEntity {
 
   private Map<String, Object> meta;
 
-  private String extraData;
-
   private Long blockTimestamp;
   private Long blockTimestampNanoseconds;
 
@@ -66,7 +64,6 @@ public class Uncle implements BlockchainEntity {
     this.totalDifficulty = builder.totalDifficulty;
     this.transactionsRoot = builder.transactionsRoot;
     this.meta = builder.meta;
-    this.extraData = builder.extraData;
     this.blockTimestamp = builder.blockTimestamp;
     this.blockTimestampNanoseconds = builder.blockTimestampNanoseconds;
   }
@@ -255,14 +252,6 @@ public class Uncle implements BlockchainEntity {
     this.meta = meta;
   }
 
-  public String getExtraData() {
-    return extraData;
-  }
-
-  public void setExtraData(String extraData) {
-    this.extraData = extraData;
-  }
-
   public Long getBlockTimestamp() {
     return blockTimestamp;
   }
@@ -324,8 +313,6 @@ public class Uncle implements BlockchainEntity {
     private String transactionsRoot;
 
     private Map<String, Object> meta;
-
-    private String extraData;
 
     private Long blockTimestamp;
     private Long blockTimestampNanoseconds;
@@ -442,11 +429,6 @@ public class Uncle implements BlockchainEntity {
 
     public Builder meta(Map<String, Object> meta) {
       this.meta = meta;
-      return this;
-    }
-
-    public Builder extraData(String extraData) {
-      this.extraData = extraData;
       return this;
     }
 
