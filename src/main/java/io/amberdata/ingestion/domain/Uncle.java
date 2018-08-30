@@ -287,6 +287,37 @@ public class Uncle implements BlockchainEntity {
     return Objects.hash(this.hash);
   }
 
+  @Override
+  public String toString() {
+    return "Uncle{"
+        + "blockNumber=" + this.blockNumber
+        + ", blockHash='" + this.blockHash + '\''
+        + ", difficulty=" + this.difficulty
+        + ", gasLimit=" + this.gasLimit
+        + ", gasUsed=" + this.gasUsed
+        + ", hash='" + this.hash + '\''
+        + ", logsBloom='" + this.logsBloom + '\''
+        + ", miner='" + this.miner + '\''
+        + ", mixHash='" + this.mixHash + '\''
+        + ", nonce=" + this.nonce
+        + ", number=" + this.number
+        + ", parentHash='" + this.parentHash + '\''
+        + ", positionIndex=" + this.positionIndex
+        + ", rewardValue='" + this.rewardValue + '\''
+        + ", receiptsRoot='" + this.receiptsRoot + '\''
+        + ", sha3Uncles='" + this.sha3Uncles + '\''
+        + ", size=" + this.size
+        + ", stateRoot='" + this.stateRoot + '\''
+        + ", timestamp=" + this.timestamp
+        + ", timestampNanoseconds=" + this.timestampNanoseconds
+        + ", totalDifficulty=" + this.totalDifficulty
+        + ", transactionsRoot='" + this.transactionsRoot + '\''
+        + ", meta=" + this.meta
+        + ", blockTimestamp=" + this.blockTimestamp
+        + ", blockTimestampNanoseconds=" + this.blockTimestampNanoseconds
+        + '}';
+  }
+
   public static class Builder {
 
     private BigInteger blockNumber;
