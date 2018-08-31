@@ -12,6 +12,7 @@ public class Transaction implements BlockchainEntity {
   private BigInteger blockNumber;
   private String from;
   private String to;
+  private List<String> tos;
   private BigInteger gas;
   private BigInteger gasUsed;
   private Integer numLogs;
@@ -30,6 +31,7 @@ public class Transaction implements BlockchainEntity {
     this.blockNumber = builder.blockNumber;
     this.from = builder.from;
     this.to = builder.to;
+    this.tos = builder.tos;
     this.gas = builder.gas;
     this.gasUsed = builder.gasUsed;
     this.numLogs = builder.numLogs;
@@ -72,8 +74,20 @@ public class Transaction implements BlockchainEntity {
     this.from = from;
   }
 
+  public String getTo() {
+    return to;
+  }
+
   public void setTo(String to) {
     this.to = to;
+  }
+
+  public List<String> getTos() {
+    return tos;
+  }
+
+  public void setTos(List<String> tos) {
+    this.tos = tos;
   }
   
   public BigInteger getGas() {
@@ -160,21 +174,22 @@ public class Transaction implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "Transaction{"
-        + "hash='" + this.hash + '\''
-        + ", nonce=" + this.nonce
-        + ", blockNumber=" + this.blockNumber
-        + ", from='" + this.from + '\''
-        + ", to='" + this.to + '\''
-        + ", gas=" + this.gas
-        + ", gasUsed=" + this.gasUsed
-        + ", numLogs=" + this.numLogs
-        + ", functionCalls=" + this.functionCalls
-        + ", status='" + this.status + '\''
-        + ", value=" + this.value
-        + ", timestamp=" + this.timestamp
-        + ", meta=" + this.meta
-        + '}';
+    return "Transaction{" +
+        "hash='" + hash + '\'' +
+        ", nonce=" + nonce +
+        ", blockNumber=" + blockNumber +
+        ", from='" + from + '\'' +
+        ", to='" + to + '\'' +
+        ", tos=" + tos +
+        ", gas=" + gas +
+        ", gasUsed=" + gasUsed +
+        ", numLogs=" + numLogs +
+        ", functionCalls=" + functionCalls +
+        ", status='" + status + '\'' +
+        ", value=" + value +
+        ", timestamp=" + timestamp +
+        ", meta=" + meta +
+        '}';
   }
 
   public static class Builder {
@@ -183,6 +198,7 @@ public class Transaction implements BlockchainEntity {
     private BigInteger blockNumber;
     private String from;
     private String to;
+    private List<String> tos;
     private BigInteger gas;
     private BigInteger gasUsed;
     private Integer numLogs;
@@ -214,6 +230,11 @@ public class Transaction implements BlockchainEntity {
 
     public Transaction.Builder to(String value) {
       this.to = value;
+      return this;
+    }
+
+    public Transaction.Builder tos(List<String> value) {
+      this.tos = value;
       return this;
     }
     
