@@ -8,6 +8,7 @@ import java.util.Objects;
 
 public class Transaction implements BlockchainEntity {
   private String hash;
+  private Long transactionIndex;
   private BigInteger nonce;
   private BigInteger blockNumber;
   private String from;
@@ -27,6 +28,7 @@ public class Transaction implements BlockchainEntity {
 
   private Transaction(Builder builder) {
     this.hash = builder.hash;
+    this.transactionIndex = builder.transactionIndex;
     this.nonce = builder.nonce;
     this.blockNumber = builder.blockNumber;
     this.from = builder.from;
@@ -48,6 +50,14 @@ public class Transaction implements BlockchainEntity {
 
   public void setHash(String hash) {
     this.hash = hash;
+  }
+
+  public Long getTransactionIndex() {
+    return transactionIndex;
+  }
+
+  public void setTransactionIndex(Long transactionIndex) {
+    this.transactionIndex = transactionIndex;
   }
 
   public BigInteger getNonce() {
@@ -176,6 +186,7 @@ public class Transaction implements BlockchainEntity {
   public String toString() {
     return "Transaction{" +
         "hash='" + hash + '\'' +
+        ", transactionIndex=" + transactionIndex +
         ", nonce=" + nonce +
         ", blockNumber=" + blockNumber +
         ", from='" + from + '\'' +
@@ -194,6 +205,7 @@ public class Transaction implements BlockchainEntity {
 
   public static class Builder {
     private String hash;
+    private Long transactionIndex;
     private BigInteger nonce;
     private BigInteger blockNumber;
     private String from;
@@ -210,6 +222,11 @@ public class Transaction implements BlockchainEntity {
 
     public Transaction.Builder hash(String value) {
       this.hash = value;
+      return this;
+    }
+
+    public Transaction.Builder transactionIndex(Long value) {
+      this.transactionIndex = value;
       return this;
     }
 
