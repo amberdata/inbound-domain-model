@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Trade implements BlockchainEntity {
+  private String tradeId;
   private Integer type;
   private String buyAddress;
   private String buyAsset;
@@ -25,6 +26,7 @@ public class Trade implements BlockchainEntity {
   }
 
   private Trade(Builder builder) {
+    this.tradeId = builder.tradeId;
     this.type = builder.type;
     this.buyAddress = builder.buyAddress;
     this.buyAsset = builder.buyAsset;
@@ -40,6 +42,14 @@ public class Trade implements BlockchainEntity {
     this.transactionHash = builder.transactionHash;
     this.functionCallHash = builder.functionCallHash;
     this.meta = builder.meta;
+  }
+
+  public String getTradeId() {
+    return tradeId;
+  }
+
+  public void setTradeId(String tradeId) {
+    this.tradeId = tradeId;
   }
 
   public Integer getType() {
@@ -171,54 +181,38 @@ public class Trade implements BlockchainEntity {
       return false;
     }
     Trade trade = (Trade) object;
-    return Objects.equals(type, trade.type)
-        && Objects.equals(buyAddress, trade.buyAddress)
-        && Objects.equals(buyAsset, trade.buyAsset)
-        && Objects.equals(buyAmount, trade.buyAmount)
-        && Objects.equals(sellAddress, trade.sellAddress)
-        && Objects.equals(sellAsset, trade.sellAsset)
-        && Objects.equals(sellAmount, trade.sellAmount)
-        && Objects.equals(fee, trade.fee)
-        && Objects.equals(timestamp, trade.timestamp)
-        && Objects.equals(timestampNanoseconds, trade.timestampNanoseconds)
-        && Objects.equals(orderId, trade.orderId)
-        && Objects.equals(blockNumber, trade.blockNumber)
-        && Objects.equals(transactionHash, trade.transactionHash)
-        && Objects.equals(functionCallHash, trade.functionCallHash)
-        && Objects.equals(meta, trade.meta);
+    return Objects.equals(tradeId, trade.tradeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects
-        .hash(type, buyAddress, buyAsset, buyAmount, sellAddress, sellAsset, sellAmount, fee,
-            timestamp, timestampNanoseconds, orderId, blockNumber, transactionHash,
-            functionCallHash,
-            meta);
+    return Objects.hash(tradeId);
   }
 
   @Override
   public String toString() {
-    return "Trade{"
-        + "type=" + type
-        + ", buyAddress='" + buyAddress + '\''
-        + ", buyAsset='" + buyAsset + '\''
-        + ", buyAmount=" + buyAmount
-        + ", sellAddress='" + sellAddress + '\''
-        + ", sellAsset='" + sellAsset + '\''
-        + ", sellAmount=" + sellAmount
-        + ", fee=" + fee
-        + ", timestamp=" + timestamp
-        + ", timestampNanoseconds=" + timestampNanoseconds
-        + ", orderId='" + orderId + '\''
-        + ", blockNumber=" + blockNumber
-        + ", transactionHash='" + transactionHash + '\''
-        + ", functionCallHash='" + functionCallHash + '\''
-        + ", meta=" + meta
-        + '}';
+    return "Trade{" +
+        "tradeId='" + tradeId + '\'' +
+        ", type=" + type +
+        ", buyAddress='" + buyAddress + '\'' +
+        ", buyAsset='" + buyAsset + '\'' +
+        ", buyAmount=" + buyAmount +
+        ", sellAddress='" + sellAddress + '\'' +
+        ", sellAsset='" + sellAsset + '\'' +
+        ", sellAmount=" + sellAmount +
+        ", fee=" + fee +
+        ", timestamp=" + timestamp +
+        ", timestampNanoseconds=" + timestampNanoseconds +
+        ", orderId='" + orderId + '\'' +
+        ", blockNumber=" + blockNumber +
+        ", transactionHash='" + transactionHash + '\'' +
+        ", functionCallHash='" + functionCallHash + '\'' +
+        ", meta=" + meta +
+        '}';
   }
 
   public static class Builder {
+    private String tradeId;
     private Integer type;
     private String buyAddress;
     private String buyAsset;
@@ -234,6 +228,11 @@ public class Trade implements BlockchainEntity {
     private String transactionHash;
     private String functionCallHash;
     private Map<String, Object> meta;
+
+    public Trade.Builder tradeId(String value) {
+      this.tradeId = value;
+      return this;
+    }
 
     public Trade.Builder type(Integer value) {
       this.type = value;
