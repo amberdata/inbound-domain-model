@@ -7,15 +7,15 @@
 >
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.amberdata.ingestion</groupId>
-  <artifactId>ingestion-domain</artifactId>
-  <version>0.1.17</version>
+  <groupId>io.amberdata.inbound</groupId>
+  <artifactId>inbound-domain-model</artifactId>
+  <version>0.1.18</version>
   <packaging>jar</packaging>
 
-  <name>ingestion-domain</name>
-  <description>Amberdata Ingestion API domain model</description>
+  <name>inbound-domain-model</name>
+  <description>Amberdata Inbound Domain Model</description>
 
-  <url>https://github.com/amberdata/ingestion-domain-model</url>
+  <url>https://github.com/amberdata/inbound-domain-model</url>
   <organization>
     <name>Amberdata</name>
     <url>https://amberdata.io</url>
@@ -27,6 +27,28 @@
       <url>http://www.apache.org/licenses/LICENSE-2.0</url>
     </license>
   </licenses>
+
+  <developers>
+    <developer>
+      <id>joanesespanol</id>
+      <name>Joanes Espanol</name>
+      <email>joanes@amberdata.io</email>
+      <organization>Amberdata, Inc.</organization>
+      <organizationUrl>https://amberdata.io/</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>-7</timezone>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com/amberdata/inbound-domain-model.git</connection>
+    <developerConnection>scm:git:git://github.com/amberdata/inbound-domain-model.git</developerConnection>
+    <url>https://github.com/amberdata/inbound-domain-model</url>
+    <tag>HEAD</tag>
+  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -94,6 +116,42 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
         <version>2.8.2</version>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.0.1</version>
+
+        <configuration>
+          <failOnError>false</failOnError>
+          <skip>false</skip>
+        </configuration>
+
+        <executions>
+          <execution>
+            <id>attach_javadoc</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
