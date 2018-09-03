@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/amberdata/inbound-domain-model.svg?branch=master)](https://travis-ci.org/amberdata/inbound-domain-model)
+
 # Amberdata Inbound API
 
 Amberdata provides monitoring, alerting and analytics for blockchains.
