@@ -191,24 +191,24 @@ public class Trade implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "Trade{" +
-        "tradeId='" + tradeId + '\'' +
-        ", type=" + type +
-        ", buyAddress='" + buyAddress + '\'' +
-        ", buyAsset='" + buyAsset + '\'' +
-        ", buyAmount=" + buyAmount +
-        ", sellAddress='" + sellAddress + '\'' +
-        ", sellAsset='" + sellAsset + '\'' +
-        ", sellAmount=" + sellAmount +
-        ", fee=" + fee +
-        ", timestamp=" + timestamp +
-        ", timestampNanoseconds=" + timestampNanoseconds +
-        ", orderId='" + orderId + '\'' +
-        ", blockNumber=" + blockNumber +
-        ", transactionHash='" + transactionHash + '\'' +
-        ", functionCallHash='" + functionCallHash + '\'' +
-        ", meta=" + meta +
-        '}';
+    return "Trade{"
+        + "tradeId='" + tradeId + '\''
+        + ", type=" + type
+        + ", buyAddress='" + buyAddress + '\''
+        + ", buyAsset='" + buyAsset + '\''
+        + ", buyAmount=" + buyAmount
+        + ", sellAddress='" + sellAddress + '\''
+        + ", sellAsset='" + sellAsset + '\''
+        + ", sellAmount=" + sellAmount
+        + ", fee=" + fee
+        + ", timestamp=" + timestamp
+        + ", timestampNanoseconds=" + timestampNanoseconds
+        + ", orderId='" + orderId + '\''
+        + ", blockNumber=" + blockNumber
+        + ", transactionHash='" + transactionHash + '\''
+        + ", functionCallHash='" + functionCallHash + '\''
+        + ", meta=" + meta
+        + '}';
   }
 
   public static class Builder {
