@@ -12,12 +12,12 @@ This data model can be split into two different types of entities:
 # Raw types
 
 At the very bottom of the stack, we have:
-  - blocks, which contain transactions
-  - uncles, also known as orphan blocks
-  - transactions, which may include function calls and/or logs
-  - addresses, which can designate EOAs (Externally Owned Accounts) or Contracts
-  - function calls, also called internal messages
-  - logs, a record of events emitted from a contract execution
+  - **blocks**, which contain transactions
+  - **uncles**, also known as orphan blocks
+  - **transactions**, which may include function calls and/or logs
+  - **addresses**, which can designate EOAs (Externally Owned Accounts) or Contracts
+  - **function calls**, also called internal messages
+  - **logs**, a record of events emitted from a contract execution
 
 ## Block
 
@@ -26,10 +26,12 @@ At the very bottom of the stack, we have:
 * **number** :BigInteger number (or position )of the block in the blockchain
 * **hash** :String the unique identifier for the block (typically a UUID or hexadecimal string)
 
+
 * **gasUsed** :BigDecimal a value indicating the cost of generating this block (the unit will be different from chain to chain)
 * **numTransactions** :Integer the number of transactions included in this block
 * **parentHash** :String the unique identifier for the parent of this block in the blockchain
 * **timestamp** :Long the date/time when this block was created and incorporated into the blockchain (expressed in milliseconds)
+
 
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
@@ -50,6 +52,7 @@ Note: In the next release, we will add, as part of the top level properties of a
 * **hash** :String the unique identifier for the uncle (typically a UUID or hexadecimal string)
 * **number** :BigInteger number of this uncle
 
+
 * **blockNumber** :BigInteger number of the block this uncle is attached to
 * **blockHash** :String hash of the block this uncle is attached to
 * **blockTimestamp** :Long the date/time of the block this uncle is attached to
@@ -57,22 +60,17 @@ Note: In the next release, we will add, as part of the top level properties of a
 * **difficulty** :BigInteger the difficulty at the time uncle was created
 * **gasLimit** :BigInteger the gas limit at the time uncle was created
 * **gasUsed** :BigInteger the gas used at the time uncle was created
+* **logsBloom** :String the bloom filter for the logs of the uncle
 * **miner** :String the address of the miner which created this uncle
+* **mixHash** :BigInteger value used in the computational work for Proof of Work for example
 * **nonce** :BigInteger value used in the computational work for Proof of Work for example
 * **parentHash** :String the unique identifier for the parent block this uncle is attached to
 * **positionIndex** :Integer the index of this uncle within the block it is attached to (for ordering purposes)
+* **rewardValue** :String the reward for discovering this uncle
 * **size** :Long the size ib bytes this uncle is occupying in the chain
 * **timestamp** :Long the date/time when this uncle was created (expressed in milliseconds)
 * **timestampNanoseconds** :Long the nanoseconds part of the creation timestamp
 * **totalDifficulty** :BigInteger the total difficulty at the time uncle was created
-
-private String logsBloom;
-private String mixHash;
-private String rewardValue;
-private String receiptsRoot;
-private String sha3Uncles;
-private String stateRoot;
-private String transactionsRoot;
 
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
@@ -81,6 +79,7 @@ private String transactionsRoot;
 ### Description
 
 * **hash** :String the unique identifier for the transaction (typically a UUID or hexadecimal string)
+
 
 * **blockNumber** :BigInteger number of the block this transaction was included in
 * **from** :String the address of the originator of this transaction  
@@ -95,6 +94,7 @@ private String transactionsRoot;
 * **tos** :List<String> the addresses of the recipients of this transaction (if there are more than one)  
 * **transactionIndex** :Long position of the transaction in the block (for ordering purposes)
 * **value** :BigDecimal any transfer of value carried out by this transaction (0 if none)
+
 
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
@@ -117,7 +117,9 @@ Note: status wil be revisited in the next release and split into:
 
 * **hash** :String the unique identifier for the address (typically a UUID or hexadecimal string)
 
+
 * **timestamp** :Long the date/time when this address was encountered (expressed in milliseconds)
+
 
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
@@ -132,6 +134,7 @@ Note: the next revision will include
 ### Description
 
 * **hash** :String the unique identifier for the function call (typically a UUID or hexadecimal string)
+
 
 * **arguments** :List<Argument> a list of arguments being passed to the function
 * **assetType** :String the asset type involved in this function call (if any)
@@ -149,6 +152,7 @@ Note: the next revision will include
 * **type** :String the type of the function being called
 * **value** :BigDecimal any transfer of value carried out by this function call (if any)
 
+
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
 ### Future improvements
@@ -162,10 +166,10 @@ TODO: what is type ???
 # Derived types
 
 As we go up the stack, higher level object types are:
-  - assets
-  - tokens (for example ERC20 or ERC721 type tokens)
-  - orders (DEX, or decentralized exchange related)
-  - trades (DEX, or decentralized exchange related)
+  - **assets**
+  - **tokens** (for example ERC20 or ERC721 type tokens)
+  - **orders** (DEX, or decentralized exchange related)
+  - **trades** (DEX, or decentralized exchange related)
 
 ## Asset
 
@@ -178,6 +182,7 @@ As we go up the stack, higher level object types are:
 * **timestamp** :Long the date/time when this asset was created (expressed in milliseconds) (typically the timestamp of the associated function call or transaction)
 * **transactionHash** :String the unique identifier for the transaction in which this asset was created
 * **type** :AssetType the type of the asset (native, credit_alphanum4, credit_alphanum12, unknown)
+
 
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
@@ -192,6 +197,7 @@ As we go up the stack, higher level object types are:
 * **erc20** :boolean true if this token is an ERC20 token
 * **erc721** :boolean true if this token is an ERC721 token
 
+
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
 ## Order
@@ -199,6 +205,7 @@ As we go up the stack, higher level object types are:
 ### Description
 
 * **orderId** :String the unique identifier for the order (typically a UUID or hexadecimal string)
+
 
 * **blockNumber** :Long number of the block this order was created in  
 * **buyAmount** :BigDecimal the amount of asset being bought
@@ -213,6 +220,7 @@ As we go up the stack, higher level object types are:
 * **timestampNanoseconds** :Long the nanoseconds part of the issued timestamp
 * **transactionHash** :String the unique identifier for the transaction this order was created in
 * **type** :Integer type of order (buy or sell)
+
 
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
@@ -235,6 +243,7 @@ As we go up the stack, higher level object types are:
 * **tradeId** :String the unique identifier for the trade (typically a UUID or hexadecimal string)
 * **transactionHash** :String the unique identifier for the transaction this trade was executed in
 * **type** :Integer type of trade (buy or sell)
+
 
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
