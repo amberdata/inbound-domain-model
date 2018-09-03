@@ -197,7 +197,7 @@ public class Asset implements BlockchainEntity {
     }
 
     /**
-     * Creates an AssetType object by its string name
+     * Creates an AssetType object by its string name.
      * @param name name of the asset used in stellar network
      * @return an object of AssetType
      */

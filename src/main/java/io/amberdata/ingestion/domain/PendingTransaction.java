@@ -127,8 +127,8 @@ public class PendingTransaction implements BlockchainEntity {
     return this.value;
   }
 
-  public void setValue(BigDecimal aValue) {
-    this.value = aValue;
+  public void setValue(BigDecimal value) {
+    this.value = value;
   }
 
   public String getInput() {
@@ -281,108 +281,108 @@ public class PendingTransaction implements BlockchainEntity {
 
     private Integer state;
 
-    public Builder hash(String aValue) {
-      this.hash = aValue;
+    public Builder hash(String value) {
+      this.hash = value;
       return this;
     }
 
-    public Builder nonce(BigInteger aValue) {
-      this.nonce = aValue;
+    public Builder nonce(BigInteger value) {
+      this.nonce = value;
       return this;
     }
 
-    public Builder blockHash(String aValue) {
-      this.blockHash = aValue;
+    public Builder blockHash(String value) {
+      this.blockHash = value;
       return this;
     }
 
-    public Builder blockNumber(BigInteger aValue) {
-      this.blockNumber = aValue;
+    public Builder blockNumber(BigInteger value) {
+      this.blockNumber = value;
       return this;
     }
 
-    public Builder transactionIndex(Long aValue) {
-      this.transactionIndex = aValue;
+    public Builder transactionIndex(Long value) {
+      this.transactionIndex = value;
       return this;
     }
 
-    public Builder from(String aValue) {
-      this.from = aValue;
+    public Builder from(String value) {
+      this.from = value;
       return this;
     }
 
-    public Builder to(String aValue) {
-      this.to = aValue;
+    public Builder to(String value) {
+      this.to = value;
       return this;
     }
 
-    public Builder value(BigDecimal aValue) {
-      this.value = aValue;
+    public Builder value(BigDecimal value) {
+      this.value = value;
       return this;
     }
 
-    public Builder input(String aValue) {
-      this.input = aValue;
+    public Builder input(String value) {
+      this.input = value;
       return this;
     }
 
-    public Builder gasPrice(BigInteger aValue) {
-      this.gasPrice = aValue;
+    public Builder gasPrice(BigInteger value) {
+      this.gasPrice = value;
       return this;
     }
 
-    public Builder gas(BigInteger aValue) {
-      this.gas = aValue;
+    public Builder gas(BigInteger value) {
+      this.gas = value;
       return this;
     }
 
-    public Builder createdAt(Long aValue) {
-      this.createdAt = aValue;
+    public Builder createdAt(Long value) {
+      this.createdAt = value;
       return this;
     }
 
-    public Builder createdAtNanoseconds(Long aValue) {
-      this.createdAtNanoseconds = aValue;
+    public Builder createdAtNanoseconds(Long value) {
+      this.createdAtNanoseconds = value;
       return this;
     }
 
-    public Builder meta(Map<String, Object> aValue) {
-      this.meta = aValue;
+    public Builder meta(Map<String, Object> value) {
+      this.meta = value;
       return this;
     }
 
-    public Builder confirmedHash(String aValue) {
-      this.confirmedHash = aValue;
+    public Builder confirmedHash(String value) {
+      this.confirmedHash = value;
       return this;
     }
 
-    public Builder confirmedAt(Long aValue) {
-      this.confirmedAt = aValue;
+    public Builder confirmedAt(Long value) {
+      this.confirmedAt = value;
       return this;
     }
 
-    public Builder confirmedAtNanoseconds(Long aValue) {
-      this.confirmedAtNanoseconds = aValue;
+    public Builder confirmedAtNanoseconds(Long value) {
+      this.confirmedAtNanoseconds = value;
       return this;
     }
 
-    public Builder state(Integer aValue) {
-      this.state = aValue;
+    public Builder state(Integer value) {
+      this.state = value;
       return this;
     }
 
-    public Builder creates(String aValue) {
-      this.creates = aValue;
+    public Builder creates(String value) {
+      this.creates = value;
       return this;
     }
 
-    public Builder publicKey(String aValue) {
-      this.publicKey = aValue;
+    public Builder publicKey(String value) {
+      this.publicKey = value;
       return this;
     }
 
-    public Builder raw(String aValue) {
-      this.raw = aValue;
+    public Builder raw(String value) {
+      this.raw = value;
       return this;
     }
 
