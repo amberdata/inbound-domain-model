@@ -1,4 +1,4 @@
-package io.amberdata.ingestion.domain;
+package io.amberdata.inbound.domain;
 
 import java.math.BigDecimal;
 import java.util.Map;
