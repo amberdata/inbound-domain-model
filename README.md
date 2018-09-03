@@ -5,9 +5,28 @@ Amberdata provides monitoring, alerting and analytics for blockchains.
 The Amberdata platform can accept data from different blockchains.  In fact, after working with and researching a few different protocols and implementations (Ethreum, Aion, Stellar, etc), we have found some commonalities between them (and some differences!), and we have developed a global data model. 
 
 This data model can be split into two different types of entities:
-  - raw types: Block, Uncle, Transaction, Address, Log and FunctionCall
-  - derived types: Asset, Token, Order and Trade
 
+[Raw Types](#raw-types)
+* [Block](#block)
+* [Uncle](#uncle)
+* [Transaction](#transaction)
+* [Address](#address)
+* [Function Call](#function-call)
+* [Log](#log)
+
+[Derived Types](#derived-types)
+* [Asset](#asset)
+* [Token](#token)
+* [Order](#order)
+* [Trade](#trade)
+
+To get started, please see one of these sections:
+
+[Usage](#usage)
+
+[Getting Started](#getting-started)
+
+[Licensing](#licensing)
 
 # Raw types
 
@@ -135,10 +154,6 @@ Note: the next revision will include
 * **type** :String the type of the function being called
 * **value** :BigDecimal any transfer of value carried out by this function call (if any)
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
-
-### Future improvements
-
-TODO: what is type ???
 
 ## Log
 
