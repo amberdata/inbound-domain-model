@@ -184,23 +184,23 @@ public class Transaction implements BlockchainEntity {
 
   @Override
   public String toString() {
-    return "Transaction{" +
-        "hash='" + hash + '\'' +
-        ", transactionIndex=" + transactionIndex +
-        ", nonce=" + nonce +
-        ", blockNumber=" + blockNumber +
-        ", from='" + from + '\'' +
-        ", to='" + to + '\'' +
-        ", tos=" + tos +
-        ", gas=" + gas +
-        ", gasUsed=" + gasUsed +
-        ", numLogs=" + numLogs +
-        ", functionCalls=" + functionCalls +
-        ", status='" + status + '\'' +
-        ", value=" + value +
-        ", timestamp=" + timestamp +
-        ", meta=" + meta +
-        '}';
+    return "Transaction{"
+        + "hash='" + hash + '\''
+        + ", transactionIndex=" + transactionIndex
+        + ", nonce=" + nonce
+        + ", blockNumber=" + blockNumber
+        + ", from='" + from + '\''
+        + ", to='" + to + '\''
+        + ", tos=" + tos
+        + ", gas=" + gas
+        + ", gasUsed=" + gasUsed
+        + ", numLogs=" + numLogs
+        + ", functionCalls=" + functionCalls
+        + ", status='" + status + '\''
+        + ", value=" + value
+        + ", timestamp=" + timestamp
+        + ", meta=" + meta
+        + '}';
   }
 
   public static class Builder {
