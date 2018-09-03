@@ -25,14 +25,10 @@ At the very bottom of the stack, we have:
 
 * **number** :BigInteger number (or position )of the block in the blockchain
 * **hash** :String the unique identifier for the block (typically a UUID or hexadecimal string)
-
-
 * **gasUsed** :BigDecimal a value indicating the cost of generating this block (the unit will be different from chain to chain)
 * **numTransactions** :Integer the number of transactions included in this block
 * **parentHash** :String the unique identifier for the parent of this block in the blockchain
 * **timestamp** :Long the date/time when this block was created and incorporated into the blockchain (expressed in milliseconds)
-
-
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
 ### Future improvements
@@ -51,8 +47,6 @@ Note: In the next release, we will add, as part of the top level properties of a
 
 * **hash** :String the unique identifier for the uncle (typically a UUID or hexadecimal string)
 * **number** :BigInteger number of this uncle
-
-
 * **blockNumber** :BigInteger number of the block this uncle is attached to
 * **blockHash** :String hash of the block this uncle is attached to
 * **blockTimestamp** :Long the date/time of the block this uncle is attached to
@@ -71,7 +65,6 @@ Note: In the next release, we will add, as part of the top level properties of a
 * **timestamp** :Long the date/time when this uncle was created (expressed in milliseconds)
 * **timestampNanoseconds** :Long the nanoseconds part of the creation timestamp
 * **totalDifficulty** :BigInteger the total difficulty at the time uncle was created
-
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
 ## Transaction
@@ -79,8 +72,6 @@ Note: In the next release, we will add, as part of the top level properties of a
 ### Description
 
 * **hash** :String the unique identifier for the transaction (typically a UUID or hexadecimal string)
-
-
 * **blockNumber** :BigInteger number of the block this transaction was included in
 * **from** :String the address of the originator of this transaction  
 * **functionCalls** :List<FunctionCall> a list of function calls executed during this transaction
@@ -94,8 +85,6 @@ Note: In the next release, we will add, as part of the top level properties of a
 * **tos** :List<String> the addresses of the recipients of this transaction (if there are more than one)  
 * **transactionIndex** :Long position of the transaction in the block (for ordering purposes)
 * **value** :BigDecimal any transfer of value carried out by this transaction (0 if none)
-
-
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
 ### Future improvements
@@ -116,11 +105,7 @@ Note: status wil be revisited in the next release and split into:
 ### Description
 
 * **hash** :String the unique identifier for the address (typically a UUID or hexadecimal string)
-
-
 * **timestamp** :Long the date/time when this address was encountered (expressed in milliseconds)
-
-
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
 ### Future improvements
@@ -134,8 +119,6 @@ Note: the next revision will include
 ### Description
 
 * **hash** :String the unique identifier for the function call (typically a UUID or hexadecimal string)
-
-
 * **arguments** :List<Argument> a list of arguments being passed to the function
 * **assetType** :String the asset type involved in this function call (if any)
 * **blockNumber** :Long number of the block this function call was part of  
@@ -151,8 +134,6 @@ Note: the next revision will include
 * **transactionHash** :String the unique identifier for the transaction this function call was part of
 * **type** :String the type of the function being called
 * **value** :BigDecimal any transfer of value carried out by this function call (if any)
-
-
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
 ### Future improvements
@@ -182,8 +163,6 @@ As we go up the stack, higher level object types are:
 * **timestamp** :Long the date/time when this asset was created (expressed in milliseconds) (typically the timestamp of the associated function call or transaction)
 * **transactionHash** :String the unique identifier for the transaction in which this asset was created
 * **type** :AssetType the type of the asset (native, credit_alphanum4, credit_alphanum12, unknown)
-
-
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
 ## Token
@@ -196,8 +175,6 @@ As we go up the stack, higher level object types are:
 * **decimals** :BigDecimal the number of decimals used by this token (Ethereum specific)
 * **erc20** :boolean true if this token is an ERC20 token
 * **erc721** :boolean true if this token is an ERC721 token
-
-
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
 ## Order
@@ -205,8 +182,6 @@ As we go up the stack, higher level object types are:
 ### Description
 
 * **orderId** :String the unique identifier for the order (typically a UUID or hexadecimal string)
-
-
 * **blockNumber** :Long number of the block this order was created in  
 * **buyAmount** :BigDecimal the amount of asset being bought
 * **buyAsset** :String the unique identifier for the asset being bought
@@ -220,8 +195,6 @@ As we go up the stack, higher level object types are:
 * **timestampNanoseconds** :Long the nanoseconds part of the issued timestamp
 * **transactionHash** :String the unique identifier for the transaction this order was created in
 * **type** :Integer type of order (buy or sell)
-
-
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
 
 ## Trade
@@ -243,10 +216,7 @@ As we go up the stack, higher level object types are:
 * **tradeId** :String the unique identifier for the trade (typically a UUID or hexadecimal string)
 * **transactionHash** :String the unique identifier for the transaction this trade was executed in
 * **type** :Integer type of trade (buy or sell)
-
-
 * **meta** :Map<String, Object> a means to hold more information, typically used for blockchains specific information
-
 
 
 # Usage
