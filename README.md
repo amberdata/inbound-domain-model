@@ -243,24 +243,24 @@ As we go up the stack, higher level object types are:
 To add the Amberdata Inbound Domain Model to you Maven project, add this dependency to your `pom.xml`:
 ```xml
 <dependency>
-    <groupId>io.amberdata.ingestion</groupId>
-    <artifactId>ingestion-domain</artifactId>
-    <version>0.1.17</version>
+    <groupId>io.amberdata.inbound</groupId>
+    <artifactId>inbound-domain-model</artifactId>
+    <version>0.1.19</version>
 </dependency>
 ```
 
 Or to your `build.gradle`:
 ```gradle
 dependencies {
-    implementation 'io.amberdata.ingestion:ingestion-domain:0.1.17'
+    implementation 'io.amberdata.inbound:inbound-domain-model:0.1.19'
 }
 ```
 
 ## Build locally
 
 ```sh
-$ git clone https://github.com/amberdata/ingestion-domain-model.git
-$ cd ingestion-domain-model
+$ git clone https://github.com/amberdata/inbound-domain-model.git
+$ cd inbound-domain-model
 $ mvn clean install
 ```
 
