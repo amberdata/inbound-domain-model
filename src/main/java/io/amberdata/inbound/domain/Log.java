@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class Log implements BlockchainEntity {
 
+  private String id;
   private String transactionHash;
   private String blockHash;
   private BigInteger blockNumber;
@@ -16,6 +17,14 @@ public class Log implements BlockchainEntity {
   private Map<String, Object> meta;
 
   public Log() {
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public String getTransactionHash() {
@@ -84,6 +93,7 @@ public class Log implements BlockchainEntity {
     }
     Log log = (Log) object;
     return timestamp == log.timestamp
+        && Objects.equals(id, log.id)
         && Objects.equals(transactionHash, log.transactionHash)
         && Objects.equals(blockHash, log.blockHash)
         && Objects.equals(blockNumber, log.blockNumber)
@@ -96,7 +106,7 @@ public class Log implements BlockchainEntity {
   public int hashCode() {
     return Objects
         .hash(
-            transactionHash,
+            transactionHash, id,
             blockHash, blockNumber,
             address, data,
             timestamp, meta
@@ -106,7 +116,8 @@ public class Log implements BlockchainEntity {
   @Override
   public String toString() {
     return "Log{"
-        + "transactionHash='" + transactionHash + '\''
+        + "id='" + getId() + '\''
+        + ", transactionHash='" + transactionHash + '\''
         + ", blockHash='" + blockHash + '\''
         + ", blockNumber=" + blockNumber
         + ", address='" + address + '\''
@@ -124,6 +135,8 @@ public class Log implements BlockchainEntity {
     this.data = builder.data;
     this.timestamp = builder.timestamp;
     this.meta = builder.meta;
+
+    this.id = String.format("%s_%s", builder.address, builder.blockNumber.toString());
   }
 
   public static class Builder {
