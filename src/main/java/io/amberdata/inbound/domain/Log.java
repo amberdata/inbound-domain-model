@@ -6,7 +6,9 @@ import java.util.Objects;
 
 public class Log implements BlockchainEntity {
 
+  private String id;
   private String transactionHash;
+  private Integer logIndex;
   private String blockHash;
   private BigInteger blockNumber;
   private String address;
@@ -18,12 +20,28 @@ public class Log implements BlockchainEntity {
   public Log() {
   }
 
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
   public String getTransactionHash() {
     return transactionHash;
   }
 
   public void setTransactionHash(String transactionHash) {
     this.transactionHash = transactionHash;
+  }
+
+  public int getLogIndex() {
+    return logIndex;
+  }
+
+  public void setLogIndex(int logIndex) {
+    this.logIndex = logIndex;
   }
 
   public String getBlockHash() {
@@ -84,7 +102,9 @@ public class Log implements BlockchainEntity {
     }
     Log log = (Log) object;
     return timestamp == log.timestamp
+        && Objects.equals(id, log.id)
         && Objects.equals(transactionHash, log.transactionHash)
+        && Objects.equals(logIndex, log.logIndex)
         && Objects.equals(blockHash, log.blockHash)
         && Objects.equals(blockNumber, log.blockNumber)
         && Objects.equals(address, log.address)
@@ -96,7 +116,7 @@ public class Log implements BlockchainEntity {
   public int hashCode() {
     return Objects
         .hash(
-            transactionHash,
+            id, transactionHash, logIndex,
             blockHash, blockNumber,
             address, data,
             timestamp, meta
@@ -106,7 +126,9 @@ public class Log implements BlockchainEntity {
   @Override
   public String toString() {
     return "Log{"
-        + "transactionHash='" + transactionHash + '\''
+        + "id='" + getId() + '\''
+        + ", transactionHash='" + transactionHash + '\''
+        + ", logIndex='" + logIndex + '\''
         + ", blockHash='" + blockHash + '\''
         + ", blockNumber=" + blockNumber
         + ", address='" + address + '\''
@@ -117,6 +139,8 @@ public class Log implements BlockchainEntity {
   }
 
   private Log(Builder builder) {
+    this.id = builder.id;
+    this.logIndex = builder.logIndex;
     this.transactionHash = builder.transactionHash;
     this.blockHash = builder.blockHash;
     this.blockNumber = builder.blockNumber;
@@ -128,6 +152,8 @@ public class Log implements BlockchainEntity {
 
   public static class Builder {
 
+    private String id;
+    private Integer logIndex;
     private String transactionHash;
     private String blockHash;
     private BigInteger blockNumber;
@@ -135,6 +161,16 @@ public class Log implements BlockchainEntity {
     private String data;
     private long timestamp;
     private Map<String, Object> meta;
+
+    public Builder id(String id) {
+      this.id = id;
+      return this;
+    }
+
+    public Builder logIndex(int logIndex) {
+      this.logIndex = logIndex;
+      return this;
+    }
 
     public Builder transactionHash(String transactionHash) {
       this.transactionHash = transactionHash;
