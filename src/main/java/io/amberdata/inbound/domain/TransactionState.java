@@ -24,12 +24,12 @@ public enum TransactionState {
    * @return instance of TransactionState enum or {@code null} if no corresponding instance exists
    */
   public static TransactionState fromId(Integer id) {
-    if ( id == null ) {
+    if (id == null) {
       return null;
     }
 
     for (TransactionState type : values()) {
-      if ( type.getId() == id ) {
+      if (type.getId() == id) {
         return type;
       }
     }
