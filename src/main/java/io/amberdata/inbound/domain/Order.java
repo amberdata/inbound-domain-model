@@ -5,45 +5,45 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Order implements BlockchainEntity {
-  private Integer type;
-  private String orderId;
-  private String buyAsset;
-  private String sellAsset;
-  private BigDecimal buyAmount;
-  private BigDecimal sellAmount;
-  private Long expirationMs;
-  private Long expirationNanoseconds;
-  private String makerAddress;
-  private Long timestamp;
-  private Long timestampNanoseconds;
-  private Long blockNumber;
-  private String transactionHash;
-  private String functionCallHash;
+  private Integer             type;
+  private String              orderId;
+  private String              buyAsset;
+  private String              sellAsset;
+  private BigDecimal          buyAmount;
+  private BigDecimal          sellAmount;
+  private Long                expirationMs;
+  private Long                expirationNanoseconds;
+  private String              makerAddress;
+  private Long                timestamp;
+  private Long                timestampNanoseconds;
+  private Long                blockNumber;
+  private String              transactionHash;
+  private String              functionCallHash;
   private Map<String, Object> meta;
 
   public Order() {
   }
 
   private Order(Builder builder) {
-    this.type = builder.type;
-    this.orderId = builder.orderId;
-    this.buyAsset = builder.buyAsset;
-    this.sellAsset = builder.sellAsset;
-    this.buyAmount = builder.buyAmount;
-    this.sellAmount = builder.sellAmount;
-    this.expirationMs = builder.expirationMs;
+    this.type                  = builder.type;
+    this.orderId               = builder.orderId;
+    this.buyAsset              = builder.buyAsset;
+    this.sellAsset             = builder.sellAsset;
+    this.buyAmount             = builder.buyAmount;
+    this.sellAmount            = builder.sellAmount;
+    this.expirationMs          = builder.expirationMs;
     this.expirationNanoseconds = builder.expirationNanoseconds;
-    this.makerAddress = builder.makerAddress;
-    this.timestamp = builder.timestamp;
-    this.timestampNanoseconds = builder.timestampNanoseconds;
-    this.blockNumber = builder.blockNumber;
-    this.transactionHash = builder.transactionHash;
-    this.functionCallHash = builder.functionCallHash;
-    this.meta = builder.meta;
+    this.makerAddress          = builder.makerAddress;
+    this.timestamp             = builder.timestamp;
+    this.timestampNanoseconds  = builder.timestampNanoseconds;
+    this.blockNumber           = builder.blockNumber;
+    this.transactionHash       = builder.transactionHash;
+    this.functionCallHash      = builder.functionCallHash;
+    this.meta                  = builder.meta;
   }
 
   public Integer getType() {
-    return type;
+    return this.type;
   }
 
   public void setType(Integer type) {
@@ -51,7 +51,7 @@ public class Order implements BlockchainEntity {
   }
 
   public String getOrderId() {
-    return orderId;
+    return this.orderId;
   }
 
   public void setOrderId(String orderId) {
@@ -59,7 +59,7 @@ public class Order implements BlockchainEntity {
   }
 
   public String getBuyAsset() {
-    return buyAsset;
+    return this.buyAsset;
   }
 
   public void setBuyAsset(String buyAsset) {
@@ -67,7 +67,7 @@ public class Order implements BlockchainEntity {
   }
 
   public String getSellAsset() {
-    return sellAsset;
+    return this.sellAsset;
   }
 
   public void setSellAsset(String sellAsset) {
@@ -75,7 +75,7 @@ public class Order implements BlockchainEntity {
   }
 
   public BigDecimal getBuyAmount() {
-    return buyAmount;
+    return this.buyAmount;
   }
 
   public void setBuyAmount(BigDecimal buyAmount) {
@@ -83,7 +83,7 @@ public class Order implements BlockchainEntity {
   }
 
   public BigDecimal getSellAmount() {
-    return sellAmount;
+    return this.sellAmount;
   }
 
   public void setSellAmount(BigDecimal sellAmount) {
@@ -91,7 +91,7 @@ public class Order implements BlockchainEntity {
   }
 
   public Long getExpirationMs() {
-    return expirationMs;
+    return this.expirationMs;
   }
 
   public void setExpirationMs(Long expirationMs) {
@@ -99,7 +99,7 @@ public class Order implements BlockchainEntity {
   }
 
   public Long getExpirationNanoseconds() {
-    return expirationNanoseconds;
+    return this.expirationNanoseconds;
   }
 
   public void setExpirationNanoseconds(Long expirationNanoseconds) {
@@ -107,7 +107,7 @@ public class Order implements BlockchainEntity {
   }
 
   public String getMakerAddress() {
-    return makerAddress;
+    return this.makerAddress;
   }
 
   public void setMakerAddress(String makerAddress) {
@@ -115,7 +115,7 @@ public class Order implements BlockchainEntity {
   }
 
   public Long getTimestamp() {
-    return timestamp;
+    return this.timestamp;
   }
 
   public void setTimestamp(Long timestamp) {
@@ -123,7 +123,7 @@ public class Order implements BlockchainEntity {
   }
 
   public Long getTimestampNanoseconds() {
-    return timestampNanoseconds;
+    return this.timestampNanoseconds;
   }
 
   public void setTimestampNanoseconds(Long timestampNanoseconds) {
@@ -131,7 +131,7 @@ public class Order implements BlockchainEntity {
   }
 
   public Long getBlockNumber() {
-    return blockNumber;
+    return this.blockNumber;
   }
 
   public void setBlockNumber(Long blockNumber) {
@@ -139,7 +139,7 @@ public class Order implements BlockchainEntity {
   }
 
   public String getTransactionHash() {
-    return transactionHash;
+    return this.transactionHash;
   }
 
   public void setTransactionHash(String transactionHash) {
@@ -147,7 +147,7 @@ public class Order implements BlockchainEntity {
   }
 
   public String getFunctionCallHash() {
-    return functionCallHash;
+    return this.functionCallHash;
   }
 
   public void setFunctionCallHash(String functionCallHash) {
@@ -155,7 +155,7 @@ public class Order implements BlockchainEntity {
   }
 
   public Map<String, Object> getMeta() {
-    return meta;
+    return this.meta;
   }
 
   public void setMeta(Map<String, Object> meta) {
@@ -167,54 +167,55 @@ public class Order implements BlockchainEntity {
     if (this == object) {
       return true;
     }
-    if (object == null || getClass() != object.getClass()) {
+    if (object == null || this.getClass() != object.getClass()) {
       return false;
     }
     Order order = (Order) object;
-    return Objects.equals(orderId, order.orderId);
+    return Objects.equals(this.orderId, order.orderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orderId);
+    return Objects.hash(this.orderId);
   }
 
   @Override
   public String toString() {
     return "Order{"
-        + "type=" + type
-        + ", orderId='" + orderId + '\''
-        + ", buyAsset='" + buyAsset + '\''
-        + ", sellAsset='" + sellAsset + '\''
-        + ", buyAmount=" + buyAmount
-        + ", sellAmount=" + sellAmount
-        + ", expirationMs=" + expirationMs
-        + ", expirationNanoseconds=" + expirationNanoseconds
-        + ", makerAddress='" + makerAddress + '\''
-        + ", timestamp=" + timestamp
-        + ", timestampNanoseconds=" + timestampNanoseconds
-        + ", blockNumber=" + blockNumber
-        + ", transactionHash='" + transactionHash + '\''
-        + ", functionCallHash='" + functionCallHash + '\''
-        + ", meta=" + meta
+        + "type="                  + this.type                    + ","
+        + "orderId='"              + this.orderId + '\''          + ","
+        + "buyAsset='"             + this.buyAsset + '\''         + ","
+        + "sellAsset='"            + this.sellAsset + '\''        + ","
+        + "buyAmount="             + this.buyAmount               + ","
+        + "sellAmount="            + this.sellAmount              + ","
+        + "expirationMs="          + this.expirationMs            + ","
+        + "expirationNanoseconds=" + this.expirationNanoseconds   + ","
+        + "makerAddress='"         + this.makerAddress + '\''     + ","
+        + "timestamp="             + this.timestamp               + ","
+        + "timestampNanoseconds="  + this.timestampNanoseconds    + ","
+        + "blockNumber="           + this.blockNumber             + ","
+        + "transactionHash='"      + this.transactionHash + '\''  + ","
+        + "functionCallHash='"     + this.functionCallHash + '\'' + ","
+        + "meta="                  + this.meta
         + '}';
   }
 
   public static class Builder {
-    private Integer type;
-    private String orderId;
-    private String buyAsset;
-    private String sellAsset;
-    private BigDecimal buyAmount;
-    private BigDecimal sellAmount;
-    private Long expirationMs;
-    private Long expirationNanoseconds;
-    private String makerAddress;
-    private Long timestamp;
-    private Long timestampNanoseconds;
-    private Long blockNumber;
-    private String transactionHash;
-    private String functionCallHash;
+
+    private Integer             type;
+    private String              orderId;
+    private String              buyAsset;
+    private String              sellAsset;
+    private BigDecimal          buyAmount;
+    private BigDecimal          sellAmount;
+    private Long                expirationMs;
+    private Long                expirationNanoseconds;
+    private String              makerAddress;
+    private Long                timestamp;
+    private Long                timestampNanoseconds;
+    private Long                blockNumber;
+    private String              transactionHash;
+    private String              functionCallHash;
     private Map<String, Object> meta;
 
     public Order.Builder type(Integer value) {
@@ -295,5 +296,6 @@ public class Order implements BlockchainEntity {
     public Order build() {
       return new Order(this);
     }
+
   }
 }

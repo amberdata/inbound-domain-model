@@ -6,25 +6,32 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Block implements BlockchainEntity {
-  private BigInteger number;
-  private String hash;
-  private String parentHash;
-  private BigDecimal gasUsed;
-  private Integer numTransactions;
-  private Long timestamp;
+
+  private BigInteger          number;
+  private BigInteger          difficulty;
+  private String              hash;
+  private String              parentHash;
+  private BigDecimal          gasUsed;
+  private Integer             numTransactions;
+  private BigDecimal          reward;
+  private BigDecimal          rewardFees;
+  private Long                timestamp;
   private Map<String, Object> meta;
 
   public Block() {
   }
 
   private Block(Builder builder) {
-    this.number = builder.number;
-    this.hash = builder.hash;
-    this.parentHash = builder.parentHash;
-    this.gasUsed = builder.gasUsed;
-    this.timestamp = builder.timestamp;
+    this.number          = builder.number;
+    this.difficulty      = builder.difficulty;
+    this.hash            = builder.hash;
+    this.parentHash      = builder.parentHash;
+    this.gasUsed         = builder.gasUsed;
+    this.timestamp       = builder.timestamp;
     this.numTransactions = builder.numTransactions;
-    this.meta = builder.meta;
+    this.reward          = builder.reward;
+    this.rewardFees      = builder.rewardFees;
+    this.meta            = builder.meta;
   }
 
   public BigInteger getNumber() {
@@ -33,6 +40,14 @@ public class Block implements BlockchainEntity {
 
   public void setNumber(BigInteger number) {
     this.number = number;
+  }
+
+  public BigInteger getDifficulty() {
+    return this.difficulty;
+  }
+
+  public void setDifficulty(BigInteger difficulty) {
+    this.difficulty = difficulty;
   }
 
   public String getHash() {
@@ -75,6 +90,22 @@ public class Block implements BlockchainEntity {
     this.numTransactions = numTransactions;
   }
 
+  public BigDecimal getReward() {
+    return this.reward;
+  }
+
+  public void setReward(BigDecimal reward) {
+    this.reward = reward;
+  }
+
+  public BigDecimal getRewardFees() {
+    return this.rewardFees;
+  }
+
+  public void setRewardFees(BigDecimal rewardFees) {
+    this.rewardFees = rewardFees;
+  }
+
   public Map<String, Object> getMeta() {
     return this.meta;
   }
@@ -93,24 +124,30 @@ public class Block implements BlockchainEntity {
     }
 
     Block that = (Block) object;
-    return Objects.equals(this.number, that.number)
-        && Objects.equals(this.hash, that.hash)
-        && Objects.equals(this.parentHash, that.parentHash)
-        && Objects.equals(this.gasUsed, that.gasUsed)
-        && Objects.equals(this.timestamp, that.timestamp)
+    return Objects.equals(this.number,          that.number)
+        && Objects.equals(this.difficulty,      that.difficulty)
+        && Objects.equals(this.hash,            that.hash)
+        && Objects.equals(this.parentHash,      that.parentHash)
+        && Objects.equals(this.gasUsed,         that.gasUsed)
+        && Objects.equals(this.timestamp,       that.timestamp)
         && Objects.equals(this.numTransactions, that.numTransactions)
-        && Objects.equals(this.meta, that.meta);
+        && Objects.equals(this.reward,          that.reward)
+        && Objects.equals(this.rewardFees,      that.rewardFees)
+        && Objects.equals(this.meta,            that.meta);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(
         this.number,
+        this.difficulty,
         this.hash,
         this.parentHash,
         this.gasUsed,
         this.timestamp,
         this.numTransactions,
+        this.reward,
+        this.rewardFees,
         this.meta
     );
   }
@@ -118,27 +155,39 @@ public class Block implements BlockchainEntity {
   @Override
   public String toString() {
     return "Block{"
-        + "number=" + this.number
-        + ", hash='" + this.hash + '\''
-        + ", parentHash='" + this.parentHash + '\''
-        + ", gasUsed=" + this.gasUsed
-        + ", numTransactions=" + this.numTransactions
-        + ", timestamp=" + this.timestamp
-        + ", meta=" + this.meta
+        + "number="          + this.number            + ","
+        + "difficulty="      + this.difficulty        + ","
+        + "hash='"           + this.hash + '\''       + ","
+        + "parentHash='"     + this.parentHash + '\'' + ","
+        + "gasUsed="         + this.gasUsed           + ","
+        + "numTransactions=" + this.numTransactions   + ","
+        + "reward="          + this.reward            + ","
+        + "rewardFees="      + this.rewardFees        + ","
+        + "timestamp="       + this.timestamp         + ","
+        + "meta="            + this.meta
         + '}';
   }
 
   public static class Builder {
-    private BigInteger number;
-    private String hash;
-    private String parentHash;
-    private BigDecimal gasUsed;
-    private Long timestamp;
-    private Integer numTransactions;
+
+    private BigInteger          number;
+    private BigInteger          difficulty;
+    private String              hash;
+    private String              parentHash;
+    private BigDecimal          gasUsed;
+    private Long                timestamp;
+    private Integer             numTransactions;
+    private BigDecimal          reward;
+    private BigDecimal          rewardFees;
     private Map<String, Object> meta;
 
     public Block.Builder number(BigInteger value) {
       this.number = value;
+      return this;
+    }
+
+    public Block.Builder difficulty(BigInteger value) {
+      this.difficulty = value;
       return this;
     }
 
@@ -167,6 +216,16 @@ public class Block implements BlockchainEntity {
       return this;
     }
 
+    public Block.Builder reward(BigDecimal value) {
+      this.reward = value;
+      return this;
+    }
+
+    public Block.Builder rewardFees(BigDecimal value) {
+      this.rewardFees = value;
+      return this;
+    }
+
     public Block.Builder meta(Map<String, Object> value) {
       this.meta = value;
       return this;
@@ -175,5 +234,7 @@ public class Block implements BlockchainEntity {
     public Block build() {
       return new Block(this);
     }
+
   }
+
 }

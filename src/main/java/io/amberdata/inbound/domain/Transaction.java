@@ -7,41 +7,48 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Transaction implements BlockchainEntity {
-  private String hash;
-  private Long transactionIndex;
-  private BigInteger nonce;
-  private BigInteger blockNumber;
-  private String from;
-  private String to;
-  private List<String> tos;
-  private BigInteger gas;
-  private BigInteger gasUsed;
-  private Integer numLogs;
-  private List<FunctionCall> functionCalls;
-  private String status;
-  private BigDecimal value;
-  private Long timestamp;
+
+  private String              hash;
+  private Long                transactionIndex;
+  private BigInteger          nonce;
+  private BigInteger          blockNumber;
+  private String              blockHash;
+  private BigDecimal          fees;
+  private String              from;
+  private Boolean             isCoinbase;
+  private String              to;
+  private List<String>        tos;
+  private BigInteger          gas;
+  private BigInteger          gasUsed;
+  private Integer             numLogs;
+  private List<FunctionCall>  functionCalls;
+  private String              status;
+  private BigDecimal          value;
+  private Long                timestamp;
   private Map<String, Object> meta;
 
   public Transaction() {
   }
 
   private Transaction(Builder builder) {
-    this.hash = builder.hash;
+    this.hash             = builder.hash;
     this.transactionIndex = builder.transactionIndex;
-    this.nonce = builder.nonce;
-    this.blockNumber = builder.blockNumber;
-    this.from = builder.from;
-    this.to = builder.to;
-    this.tos = builder.tos;
-    this.gas = builder.gas;
-    this.gasUsed = builder.gasUsed;
-    this.numLogs = builder.numLogs;
-    this.timestamp = builder.timestamp;
-    this.functionCalls = builder.functionCalls;
-    this.status = builder.status;
-    this.value = builder.value;
-    this.meta = builder.meta;
+    this.nonce            = builder.nonce;
+    this.blockNumber      = builder.blockNumber;
+    this.blockHash        = builder.blockHash;
+    this.fees             = builder.fees;
+    this.from             = builder.from;
+    this.isCoinbase       = builder.isCoinbase;
+    this.to               = builder.to;
+    this.tos              = builder.tos;
+    this.gas              = builder.gas;
+    this.gasUsed          = builder.gasUsed;
+    this.numLogs          = builder.numLogs;
+    this.timestamp        = builder.timestamp;
+    this.functionCalls    = builder.functionCalls;
+    this.status           = builder.status;
+    this.value            = builder.value;
+    this.meta             = builder.meta;
   }
 
   public String getHash() {
@@ -53,7 +60,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public Long getTransactionIndex() {
-    return transactionIndex;
+    return this.transactionIndex;
   }
 
   public void setTransactionIndex(Long transactionIndex) {
@@ -76,6 +83,22 @@ public class Transaction implements BlockchainEntity {
     this.blockNumber = blockNumber;
   }
 
+  public String getBlockHash() {
+    return this.blockHash;
+  }
+
+  public void setBlockHash(String blockHash) {
+    this.blockHash = blockHash;
+  }
+
+  public BigDecimal getFees() {
+    return this.fees;
+  }
+
+  public void setFees(BigDecimal fees) {
+    this.fees = fees;
+  }
+
   public String getFrom() {
     return this.from;
   }
@@ -84,8 +107,16 @@ public class Transaction implements BlockchainEntity {
     this.from = from;
   }
 
+  public Boolean getIsCoinbase() {
+    return this.isCoinbase;
+  }
+
+  public void setIsCoinbase(Boolean isCoinbase) {
+    this.isCoinbase = isCoinbase;
+  }
+
   public String getTo() {
-    return to;
+    return this.to;
   }
 
   public void setTo(String to) {
@@ -93,7 +124,7 @@ public class Transaction implements BlockchainEntity {
   }
 
   public List<String> getTos() {
-    return tos;
+    return this.tos;
   }
 
   public void setTos(List<String> tos) {
@@ -185,39 +216,46 @@ public class Transaction implements BlockchainEntity {
   @Override
   public String toString() {
     return "Transaction{"
-        + "hash='" + hash + '\''
-        + ", transactionIndex=" + transactionIndex
-        + ", nonce=" + nonce
-        + ", blockNumber=" + blockNumber
-        + ", from='" + from + '\''
-        + ", to='" + to + '\''
-        + ", tos=" + tos
-        + ", gas=" + gas
-        + ", gasUsed=" + gasUsed
-        + ", numLogs=" + numLogs
-        + ", functionCalls=" + functionCalls
-        + ", status='" + status + '\''
-        + ", value=" + value
-        + ", timestamp=" + timestamp
-        + ", meta=" + meta
+        + "hash='"            + this.hash + '\''      + ","
+        + "transactionIndex=" + this.transactionIndex + ","
+        + "nonce="            + this.nonce            + ","
+        + "blockNumber="      + this.blockNumber      + ","
+        + "blockHash="        + this.blockHash        + ","
+        + "fees="             + this.fees             + ","
+        + "from='"            + this.from + '\''      + ","
+        + "isCoinbase="       + this.isCoinbase       + ","
+        + "to='"              + this.to + '\''        + ","
+        + "tos="              + this.tos              + ","
+        + "gas="              + this.gas              + ","
+        + "gasUsed="          + this.gasUsed          + ","
+        + "numLogs="          + this.numLogs          + ","
+        + "functionCalls="    + this.functionCalls    + ","
+        + "status='"          + this.status + '\''    + ","
+        + "value="            + this.value            + ","
+        + "timestamp="        + this.timestamp        + ","
+        + "meta="             + this.meta
         + '}';
   }
 
   public static class Builder {
-    private String hash;
-    private Long transactionIndex;
-    private BigInteger nonce;
-    private BigInteger blockNumber;
-    private String from;
-    private String to;
-    private List<String> tos;
-    private BigInteger gas;
-    private BigInteger gasUsed;
-    private Integer numLogs;
-    private Long timestamp;
-    private List<FunctionCall> functionCalls;
-    private String status;
-    private BigDecimal value;
+
+    private String              hash;
+    private Long                transactionIndex;
+    private BigInteger          nonce;
+    private BigInteger          blockNumber;
+    private String              blockHash;
+    private BigDecimal          fees;
+    private String              from;
+    private Boolean             isCoinbase;
+    private String              to;
+    private List<String>        tos;
+    private BigInteger          gas;
+    private BigInteger          gasUsed;
+    private Integer             numLogs;
+    private Long                timestamp;
+    private List<FunctionCall>  functionCalls;
+    private String              status;
+    private BigDecimal          value;
     private Map<String, Object> meta;
 
     public Transaction.Builder hash(String value) {
@@ -240,8 +278,23 @@ public class Transaction implements BlockchainEntity {
       return this;
     }
 
+    public Transaction.Builder blockHash(String value) {
+      this.blockHash = value;
+      return this;
+    }
+
+    public Transaction.Builder fees(BigDecimal value) {
+      this.fees = value;
+      return this;
+    }
+
     public Transaction.Builder from(String value) {
       this.from = value;
+      return this;
+    }
+
+    public Transaction.Builder isCoinbase(Boolean value) {
+      this.isCoinbase = value;
       return this;
     }
 
@@ -298,5 +351,7 @@ public class Transaction implements BlockchainEntity {
     public Transaction build() {
       return new Transaction(this);
     }
+
   }
+
 }

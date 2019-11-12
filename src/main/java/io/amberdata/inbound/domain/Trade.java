@@ -5,47 +5,50 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Trade implements BlockchainEntity {
-  private String tradeId;
-  private Integer type;
-  private String buyAddress;
-  private String buyAsset;
-  private BigDecimal buyAmount;
-  private String sellAddress;
-  private String sellAsset;
-  private BigDecimal sellAmount;
-  private BigDecimal fee;
-  private Long timestamp;
-  private Long timestampNanoseconds;
-  private String orderId;
-  private Long blockNumber;
-  private String transactionHash;
-  private String functionCallHash;
+
+  private String              tradeId;
+  private Integer             type;
+  private String              buyAddress;
+  private String              buyAsset;
+  private BigDecimal          buyAmount;
+  private String              sellAddress;
+  private String              sellAsset;
+  private BigDecimal          sellAmount;
+  private BigDecimal          fee;
+  private Long                timestamp;
+  private Long                timestampNanoseconds;
+  private String              orderId;
+  private Long                blockNumber;
+  private String              blockHash;
+  private String              transactionHash;
+  private String              functionCallHash;
   private Map<String, Object> meta;
 
   public Trade() {
   }
 
   private Trade(Builder builder) {
-    this.tradeId = builder.tradeId;
-    this.type = builder.type;
-    this.buyAddress = builder.buyAddress;
-    this.buyAsset = builder.buyAsset;
-    this.buyAmount = builder.buyAmount;
-    this.sellAddress = builder.sellAddress;
-    this.sellAsset = builder.sellAsset;
-    this.sellAmount = builder.sellAmount;
-    this.fee = builder.fee;
-    this.timestamp = builder.timestamp;
+    this.tradeId              = builder.tradeId;
+    this.type                 = builder.type;
+    this.buyAddress           = builder.buyAddress;
+    this.buyAsset             = builder.buyAsset;
+    this.buyAmount            = builder.buyAmount;
+    this.sellAddress          = builder.sellAddress;
+    this.sellAsset            = builder.sellAsset;
+    this.sellAmount           = builder.sellAmount;
+    this.fee                  = builder.fee;
+    this.timestamp            = builder.timestamp;
     this.timestampNanoseconds = builder.timestampNanoseconds;
-    this.orderId = builder.orderId;
-    this.blockNumber = builder.blockNumber;
-    this.transactionHash = builder.transactionHash;
-    this.functionCallHash = builder.functionCallHash;
-    this.meta = builder.meta;
+    this.orderId              = builder.orderId;
+    this.blockNumber          = builder.blockNumber;
+    this.blockHash            = builder.blockHash;
+    this.transactionHash      = builder.transactionHash;
+    this.functionCallHash     = builder.functionCallHash;
+    this.meta                 = builder.meta;
   }
 
   public String getTradeId() {
-    return tradeId;
+    return this.tradeId;
   }
 
   public void setTradeId(String tradeId) {
@@ -53,7 +56,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public Integer getType() {
-    return type;
+    return this.type;
   }
 
   public void setType(Integer type) {
@@ -61,7 +64,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public String getBuyAddress() {
-    return buyAddress;
+    return this.buyAddress;
   }
 
   public void setBuyAddress(String buyAddress) {
@@ -69,7 +72,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public String getBuyAsset() {
-    return buyAsset;
+    return this.buyAsset;
   }
 
   public void setBuyAsset(String buyAsset) {
@@ -77,7 +80,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public BigDecimal getBuyAmount() {
-    return buyAmount;
+    return this.buyAmount;
   }
 
   public void setBuyAmount(BigDecimal buyAmount) {
@@ -85,7 +88,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public String getSellAddress() {
-    return sellAddress;
+    return this.sellAddress;
   }
 
   public void setSellAddress(String sellAddress) {
@@ -93,7 +96,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public String getSellAsset() {
-    return sellAsset;
+    return this.sellAsset;
   }
 
   public void setSellAsset(String sellAsset) {
@@ -101,7 +104,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public BigDecimal getSellAmount() {
-    return sellAmount;
+    return this.sellAmount;
   }
 
   public void setSellAmount(BigDecimal sellAmount) {
@@ -109,7 +112,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public BigDecimal getFee() {
-    return fee;
+    return this.fee;
   }
 
   public void setFee(BigDecimal fee) {
@@ -117,7 +120,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public Long getTimestamp() {
-    return timestamp;
+    return this.timestamp;
   }
 
   public void setTimestamp(Long timestamp) {
@@ -125,7 +128,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public Long getTimestampNanoseconds() {
-    return timestampNanoseconds;
+    return this.timestampNanoseconds;
   }
 
   public void setTimestampNanoseconds(Long timestampNanoseconds) {
@@ -133,7 +136,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public String getOrderId() {
-    return orderId;
+    return this.orderId;
   }
 
   public void setOrderId(String orderId) {
@@ -141,15 +144,23 @@ public class Trade implements BlockchainEntity {
   }
 
   public Long getBlockNumber() {
-    return blockNumber;
+    return this.blockNumber;
   }
 
   public void setBlockNumber(Long blockNumber) {
     this.blockNumber = blockNumber;
   }
 
+  public String getBlockHash() {
+    return this.blockHash;
+  }
+
+  public void setBlockHash(String blockHash) {
+    this.blockHash = blockHash;
+  }
+
   public String getTransactionHash() {
-    return transactionHash;
+    return this.transactionHash;
   }
 
   public void setTransactionHash(String transactionHash) {
@@ -157,7 +168,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public String getFunctionCallHash() {
-    return functionCallHash;
+    return this.functionCallHash;
   }
 
   public void setFunctionCallHash(String functionCallHash) {
@@ -165,7 +176,7 @@ public class Trade implements BlockchainEntity {
   }
 
   public Map<String, Object> getMeta() {
-    return meta;
+    return this.meta;
   }
 
   public void setMeta(Map<String, Object> meta) {
@@ -177,56 +188,59 @@ public class Trade implements BlockchainEntity {
     if (this == object) {
       return true;
     }
-    if (object == null || getClass() != object.getClass()) {
+    if (object == null || this.getClass() != object.getClass()) {
       return false;
     }
     Trade trade = (Trade) object;
-    return Objects.equals(tradeId, trade.tradeId);
+    return Objects.equals(this.tradeId, trade.tradeId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tradeId);
+    return Objects.hash(this.tradeId);
   }
 
   @Override
   public String toString() {
     return "Trade{"
-        + "tradeId='" + tradeId + '\''
-        + ", type=" + type
-        + ", buyAddress='" + buyAddress + '\''
-        + ", buyAsset='" + buyAsset + '\''
-        + ", buyAmount=" + buyAmount
-        + ", sellAddress='" + sellAddress + '\''
-        + ", sellAsset='" + sellAsset + '\''
-        + ", sellAmount=" + sellAmount
-        + ", fee=" + fee
-        + ", timestamp=" + timestamp
-        + ", timestampNanoseconds=" + timestampNanoseconds
-        + ", orderId='" + orderId + '\''
-        + ", blockNumber=" + blockNumber
-        + ", transactionHash='" + transactionHash + '\''
-        + ", functionCallHash='" + functionCallHash + '\''
-        + ", meta=" + meta
+        + "tradeId='"             + this.tradeId + '\''          + ","
+        + "type="                 + this.type                    + ","
+        + "buyAddress='"          + this.buyAddress + '\''       + ","
+        + "buyAsset='"            + this.buyAsset + '\''         + ","
+        + "buyAmount="            + this.buyAmount               + ","
+        + "sellAddress='"         + this.sellAddress + '\''      + ","
+        + "sellAsset='"           + this.sellAsset + '\''        + ","
+        + "sellAmount="           + this.sellAmount              + ","
+        + "fee="                  + this.fee                     + ","
+        + "timestamp="            + this.timestamp               + ","
+        + "timestampNanoseconds=" + this.timestampNanoseconds    + ","
+        + "orderId='"             + this.orderId + '\''          + ","
+        + "blockNumber="          + this.blockNumber             + ","
+        + "blockHash="            + this.blockHash               + ","
+        + "transactionHash='"     + this.transactionHash + '\''  + ","
+        + "functionCallHash='"    + this.functionCallHash + '\'' + ","
+        + "meta="                 + this.meta
         + '}';
   }
 
   public static class Builder {
-    private String tradeId;
-    private Integer type;
-    private String buyAddress;
-    private String buyAsset;
-    private BigDecimal buyAmount;
-    private String sellAddress;
-    private String sellAsset;
-    private BigDecimal sellAmount;
-    private BigDecimal fee;
-    private Long timestamp;
-    private Long timestampNanoseconds;
-    private String orderId;
-    private Long blockNumber;
-    private String transactionHash;
-    private String functionCallHash;
+
+    private String              tradeId;
+    private Integer             type;
+    private String              buyAddress;
+    private String              buyAsset;
+    private BigDecimal          buyAmount;
+    private String              sellAddress;
+    private String              sellAsset;
+    private BigDecimal          sellAmount;
+    private BigDecimal          fee;
+    private Long                timestamp;
+    private Long                timestampNanoseconds;
+    private String              orderId;
+    private Long                blockNumber;
+    private String              blockHash;
+    private String              transactionHash;
+    private String              functionCallHash;
     private Map<String, Object> meta;
 
     public Trade.Builder tradeId(String value) {
@@ -294,6 +308,11 @@ public class Trade implements BlockchainEntity {
       return this;
     }
 
+    public Trade.Builder blockHash(String value) {
+      this.blockHash = value;
+      return this;
+    }
+
     public Trade.Builder transactionHash(String value) {
       this.transactionHash = value;
       return this;
@@ -312,5 +331,7 @@ public class Trade implements BlockchainEntity {
     public Trade build() {
       return new Trade(this);
     }
+
   }
+
 }

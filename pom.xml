@@ -12,7 +12,7 @@
 
   <groupId>io.amberdata.inbound</groupId>
   <artifactId>inbound-domain-model</artifactId>
-  <version>0.1.21</version>
+  <version>0.1.22</version>
   <packaging>jar</packaging>
 
   <name>inbound-domain-model</name>

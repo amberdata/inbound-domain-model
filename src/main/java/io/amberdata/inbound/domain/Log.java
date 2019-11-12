@@ -6,22 +6,21 @@ import java.util.Objects;
 
 public class Log implements BlockchainEntity {
 
-  private String id;
-  private String transactionHash;
-  private Integer logIndex;
-  private String blockHash;
-  private BigInteger blockNumber;
-  private String address;
-  private String data;
-  private long timestamp;
-
+  private String              id;
+  private String              transactionHash;
+  private Integer             logIndex;
+  private String              blockHash;
+  private BigInteger          blockNumber;
+  private String              address;
+  private String              data;
+  private long                timestamp;
   private Map<String, Object> meta;
 
   public Log() {
   }
 
   public String getId() {
-    return id;
+    return this.id;
   }
 
   public void setId(String id) {
@@ -29,7 +28,7 @@ public class Log implements BlockchainEntity {
   }
 
   public String getTransactionHash() {
-    return transactionHash;
+    return this.transactionHash;
   }
 
   public void setTransactionHash(String transactionHash) {
@@ -37,7 +36,7 @@ public class Log implements BlockchainEntity {
   }
 
   public int getLogIndex() {
-    return logIndex;
+    return this.logIndex;
   }
 
   public void setLogIndex(int logIndex) {
@@ -45,7 +44,7 @@ public class Log implements BlockchainEntity {
   }
 
   public String getBlockHash() {
-    return blockHash;
+    return this.blockHash;
   }
 
   public void setBlockHash(String blockHash) {
@@ -53,7 +52,7 @@ public class Log implements BlockchainEntity {
   }
 
   public BigInteger getBlockNumber() {
-    return blockNumber;
+    return this.blockNumber;
   }
 
   public void setBlockNumber(BigInteger blockNumber) {
@@ -61,7 +60,7 @@ public class Log implements BlockchainEntity {
   }
 
   public String getAddress() {
-    return address;
+    return this.address;
   }
 
   public void setAddress(String address) {
@@ -69,7 +68,7 @@ public class Log implements BlockchainEntity {
   }
 
   public String getData() {
-    return data;
+    return this.data;
   }
 
   public void setData(String data) {
@@ -77,7 +76,7 @@ public class Log implements BlockchainEntity {
   }
 
   public long getTimestamp() {
-    return timestamp;
+    return this.timestamp;
   }
 
   public void setTimestamp(long timestamp) {
@@ -85,7 +84,7 @@ public class Log implements BlockchainEntity {
   }
 
   public Map<String, Object> getMeta() {
-    return meta;
+    return this.meta;
   }
 
   public void setMeta(Map<String, Object> meta) {
@@ -97,118 +96,124 @@ public class Log implements BlockchainEntity {
     if (this == object) {
       return true;
     }
-    if (object == null || getClass() != object.getClass()) {
+    if (object == null || this.getClass() != object.getClass()) {
       return false;
     }
     Log log = (Log) object;
-    return timestamp == log.timestamp
-        && Objects.equals(id, log.id)
-        && Objects.equals(transactionHash, log.transactionHash)
-        && Objects.equals(logIndex, log.logIndex)
-        && Objects.equals(blockHash, log.blockHash)
-        && Objects.equals(blockNumber, log.blockNumber)
-        && Objects.equals(address, log.address)
-        && Objects.equals(data, log.data)
-        && Objects.equals(meta, log.meta);
+    return this.timestamp == log.timestamp
+        && Objects.equals(this.id,              log.id)
+        && Objects.equals(this.transactionHash, log.transactionHash)
+        && Objects.equals(this.logIndex,        log.logIndex)
+        && Objects.equals(this.blockHash,       log.blockHash)
+        && Objects.equals(this.blockNumber,     log.blockNumber)
+        && Objects.equals(this.address,         log.address)
+        && Objects.equals(this.data,            log.data)
+        && Objects.equals(this.meta,            log.meta);
   }
 
   @Override
   public int hashCode() {
-    return Objects
-        .hash(
-            id, transactionHash, logIndex,
-            blockHash, blockNumber,
-            address, data,
-            timestamp, meta
-        );
+    return Objects.hash(
+        this.id,
+        this.transactionHash,
+        this.logIndex,
+        this.blockHash,
+        this.blockNumber,
+        this.address,
+        this.data,
+        this.timestamp,
+        this.meta
+    );
   }
 
   @Override
   public String toString() {
     return "Log{"
-        + "id='" + getId() + '\''
-        + ", transactionHash='" + transactionHash + '\''
-        + ", logIndex='" + logIndex + '\''
-        + ", blockHash='" + blockHash + '\''
-        + ", blockNumber=" + blockNumber
-        + ", address='" + address + '\''
-        + ", data='" + data + '\''
-        + ", timestamp=" + timestamp
-        + ", meta=" + meta
+        + "id='"              + this.getId() + '\''         + ","
+        + "transactionHash='" + this.transactionHash + '\'' + ","
+        + "logIndex='"        + this.logIndex + '\''        + ","
+        + "blockHash='"       + this.blockHash + '\''       + ","
+        + "blockNumber="      + this.blockNumber            + ","
+        + "address='"         + this.address + '\''         + ","
+        + "data='"            + this.data + '\''            + ","
+        + "timestamp="        + this.timestamp              + ","
+        + "meta="             + this.meta
         + '}';
   }
 
   private Log(Builder builder) {
-    this.id = builder.id;
-    this.logIndex = builder.logIndex;
+    this.id              = builder.id;
+    this.logIndex        = builder.logIndex;
     this.transactionHash = builder.transactionHash;
-    this.blockHash = builder.blockHash;
-    this.blockNumber = builder.blockNumber;
-    this.address = builder.address;
-    this.data = builder.data;
-    this.timestamp = builder.timestamp;
-    this.meta = builder.meta;
+    this.blockHash       = builder.blockHash;
+    this.blockNumber     = builder.blockNumber;
+    this.address         = builder.address;
+    this.data            = builder.data;
+    this.timestamp       = builder.timestamp;
+    this.meta            = builder.meta;
   }
 
   public static class Builder {
 
-    private String id;
-    private Integer logIndex;
-    private String transactionHash;
-    private String blockHash;
-    private BigInteger blockNumber;
-    private String address;
-    private String data;
-    private long timestamp;
+    private String              id;
+    private Integer             logIndex;
+    private String              transactionHash;
+    private String              blockHash;
+    private BigInteger          blockNumber;
+    private String              address;
+    private String              data;
+    private long                timestamp;
     private Map<String, Object> meta;
 
-    public Builder id(String id) {
-      this.id = id;
+    public Builder id(String value) {
+      this.id = value;
       return this;
     }
 
-    public Builder logIndex(int logIndex) {
-      this.logIndex = logIndex;
+    public Builder logIndex(int value) {
+      this.logIndex = value;
       return this;
     }
 
-    public Builder transactionHash(String transactionHash) {
-      this.transactionHash = transactionHash;
+    public Builder transactionHash(String value) {
+      this.transactionHash = value;
       return this;
     }
 
-    public Builder blockHash(String blockHash) {
-      this.blockHash = blockHash;
+    public Builder blockHash(String value) {
+      this.blockHash = value;
       return this;
     }
 
-    public Builder blockNumber(BigInteger blockNumber) {
-      this.blockNumber = blockNumber;
+    public Builder blockNumber(BigInteger value) {
+      this.blockNumber = value;
       return this;
     }
 
-    public Builder address(String address) {
-      this.address = address;
+    public Builder address(String value) {
+      this.address = value;
       return this;
     }
 
-    public Builder data(String data) {
-      this.data = data;
+    public Builder data(String value) {
+      this.data = value;
       return this;
     }
 
-    public Builder timestamp(long timestamp) {
-      this.timestamp = timestamp;
+    public Builder timestamp(long value) {
+      this.timestamp = value;
       return this;
     }
 
-    public Builder meta(Map<String, Object> meta) {
-      this.meta = meta;
+    public Builder meta(Map<String, Object> value) {
+      this.meta = value;
       return this;
     }
 
     public Log build() {
       return new Log(this);
     }
+
   }
+
 }

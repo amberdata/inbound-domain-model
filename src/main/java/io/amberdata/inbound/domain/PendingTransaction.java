@@ -11,60 +11,59 @@ public class PendingTransaction implements BlockchainEntity {
   public static final String PROPERTY_S = "s";
   public static final String PROPERTY_V = "v";
 
-  private String hash;
-  private BigInteger blockNumber;
-  private String blockHash;
-  private String creates;
-  private String from;
-  private BigInteger gas;
-  private BigInteger gasPrice;
-  private Long transactionIndex;
-  private String input;
-  private BigInteger nonce;
-  private String publicKey;
-  private String raw;
-  private String to;
-  private BigDecimal value;
+  private String              hash;
+  private BigInteger          blockNumber;
+  private String              blockHash;
+  private String              creates;
+  private String              from;
+  private BigInteger          gas;
+  private BigInteger          gasPrice;
+  private Long                transactionIndex;
+  private String              input;
+  private BigInteger          nonce;
+  private String              publicKey;
+  private String              raw;
+  private String              to;
+  private BigDecimal          value;
   private Map<String, Object> meta;
 
-  private Long createdAt;
-  private Long createdAtNanoseconds;
+  private Long                createdAt;
+  private Long                createdAtNanoseconds;
 
-  private String confirmedHash;
-  private Long confirmedAt;
-  private Long confirmedAtNanoseconds;
+  private String              confirmedHash;
+  private Long                confirmedAt;
+  private Long                confirmedAtNanoseconds;
 
-  private Integer state;
+  private Integer             state;
 
   public PendingTransaction() {
-
   }
 
   private PendingTransaction(Builder builder) {
-    this.hash = builder.hash;
-    this.blockNumber = builder.blockNumber;
-    this.blockHash = builder.blockHash;
-    this.creates = builder.creates;
-    this.from = builder.from;
-    this.gas = builder.gas;
-    this.gasPrice = builder.gasPrice;
-    this.transactionIndex = builder.transactionIndex;
-    this.input = builder.input;
-    this.nonce = builder.nonce;
-    this.publicKey = builder.publicKey;
-    this.raw = builder.raw;
-    this.to = builder.to;
-    this.value = builder.value;
-    this.meta = builder.meta;
+    this.hash                   = builder.hash;
+    this.blockNumber            = builder.blockNumber;
+    this.blockHash              = builder.blockHash;
+    this.creates                = builder.creates;
+    this.from                   = builder.from;
+    this.gas                    = builder.gas;
+    this.gasPrice               = builder.gasPrice;
+    this.transactionIndex       = builder.transactionIndex;
+    this.input                  = builder.input;
+    this.nonce                  = builder.nonce;
+    this.publicKey              = builder.publicKey;
+    this.raw                    = builder.raw;
+    this.to                     = builder.to;
+    this.value                  = builder.value;
+    this.meta                   = builder.meta;
 
-    this.createdAt = builder.createdAt;
-    this.createdAtNanoseconds = builder.createdAtNanoseconds;
+    this.createdAt              = builder.createdAt;
+    this.createdAtNanoseconds   = builder.createdAtNanoseconds;
 
-    this.confirmedHash = builder.confirmedHash;
-    this.confirmedAt = builder.confirmedAt;
+    this.confirmedHash          = builder.confirmedHash;
+    this.confirmedAt            = builder.confirmedAt;
     this.confirmedAtNanoseconds = builder.confirmedAtNanoseconds;
 
-    this.state = builder.state;
+    this.state                  = builder.state;
   }
 
   public String getHash() {
@@ -180,7 +179,7 @@ public class PendingTransaction implements BlockchainEntity {
   }
 
   public String getConfirmedHash() {
-    return confirmedHash;
+    return this.confirmedHash;
   }
 
   public void setConfirmedHash(String confirmedHash) {
@@ -188,7 +187,7 @@ public class PendingTransaction implements BlockchainEntity {
   }
 
   public Long getConfirmedAt() {
-    return confirmedAt;
+    return this.confirmedAt;
   }
 
   public void setConfirmedAt(Long confirmedAt) {
@@ -196,7 +195,7 @@ public class PendingTransaction implements BlockchainEntity {
   }
 
   public Integer getState() {
-    return state;
+    return this.state;
   }
 
   public void setState(Integer state) {
@@ -204,7 +203,7 @@ public class PendingTransaction implements BlockchainEntity {
   }
 
   public String getCreates() {
-    return creates;
+    return this.creates;
   }
 
   public void setCreates(String creates) {
@@ -212,7 +211,7 @@ public class PendingTransaction implements BlockchainEntity {
   }
 
   public String getPublicKey() {
-    return publicKey;
+    return this.publicKey;
   }
 
   public void setPublicKey(String publicKey) {
@@ -220,7 +219,7 @@ public class PendingTransaction implements BlockchainEntity {
   }
 
   public String getRaw() {
-    return raw;
+    return this.raw;
   }
 
   public void setRaw(String raw) {
@@ -228,7 +227,7 @@ public class PendingTransaction implements BlockchainEntity {
   }
 
   public Long getConfirmedAtNanoseconds() {
-    return confirmedAtNanoseconds;
+    return this.confirmedAtNanoseconds;
   }
 
   public void setConfirmedAtNanoseconds(Long confirmedAtNanoseconds) {
@@ -256,30 +255,30 @@ public class PendingTransaction implements BlockchainEntity {
 
   public static class Builder {
 
-    private String hash;
-    private BigInteger blockNumber;
-    private String blockHash;
-    private String creates;
-    private String from;
-    private BigInteger gas;
-    private BigInteger gasPrice;
-    private Long transactionIndex;
-    private String input;
-    private BigInteger nonce;
-    private String publicKey;
-    private String raw;
-    private String to;
-    private BigDecimal value;
+    private String              hash;
+    private BigInteger          blockNumber;
+    private String              blockHash;
+    private String              creates;
+    private String              from;
+    private BigInteger          gas;
+    private BigInteger          gasPrice;
+    private Long                transactionIndex;
+    private String              input;
+    private BigInteger          nonce;
+    private String              publicKey;
+    private String              raw;
+    private String              to;
+    private BigDecimal          value;
     private Map<String, Object> meta;
 
-    private Long createdAt;
-    private Long createdAtNanoseconds;
+    private Long                createdAt;
+    private Long                createdAtNanoseconds;
 
-    private String confirmedHash;
-    private Long confirmedAt;
-    private Long confirmedAtNanoseconds;
+    private String              confirmedHash;
+    private Long                confirmedAt;
+    private Long                confirmedAtNanoseconds;
 
-    private Integer state;
+    private Integer             state;
 
     public Builder hash(String value) {
       this.hash = value;
