@@ -4,17 +4,18 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Address implements BlockchainEntity {
-  private String hash;
-  private Long timestamp;
+
+  private String              hash;
+  private Long                timestamp;
   private Map<String, Object> meta;
 
   public Address() {
   }
 
   private Address(Builder builder) {
-    this.hash = builder.hash;
+    this.hash      = builder.hash;
     this.timestamp = builder.timestamp;
-    this.meta = builder.meta;
+    this.meta      = builder.meta;
   }
 
   public String getHash() {
@@ -51,10 +52,9 @@ public class Address implements BlockchainEntity {
     }
 
     Address that = (Address) object;
-    return
-        Objects.equals(this.hash, that.hash)
-          && Objects.equals(this.timestamp, that.timestamp)
-          && Objects.equals(this.meta, that.meta);
+    return Objects.equals(this.hash,      that.hash)
+        && Objects.equals(this.timestamp, that.timestamp)
+        && Objects.equals(this.meta,      that.meta);
   }
 
   @Override
@@ -65,15 +65,16 @@ public class Address implements BlockchainEntity {
   @Override
   public String toString() {
     return "Address{"
-        + "hash='" + this.hash + '\''
-        + ", timestamp=" + this.timestamp
-        + ", meta=" + this.meta
+        + "hash='"     + this.hash + '\'' + ","
+        + "timestamp=" + this.timestamp   + ","
+        + "meta="      + this.meta
         + '}';
   }
 
   public static class Builder {
-    private String hash;
-    private Long timestamp;
+
+    private String              hash;
+    private Long                timestamp;
     private Map<String, Object> meta;
 
     public Address.Builder hash(String value) {
@@ -94,5 +95,7 @@ public class Address implements BlockchainEntity {
     public Address build() {
       return new Address(this);
     }
+
   }
+
 }

@@ -4,27 +4,28 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Asset implements BlockchainEntity {
-  private AssetType type;
-  private String code;
-  private String issuerAccount;
-  private String amount;
-  private String transactionHash;
-  private String functionCallHash;
-  private Long timestamp;
+
+  private AssetType           type;
+  private String              code;
+  private String              issuerAccount;
+  private String              amount;
+  private String              transactionHash;
+  private String              functionCallHash;
+  private Long                timestamp;
   private Map<String, Object> meta;
 
   public Asset() {
   }
 
   private Asset(Builder builder) {
-    this.type = builder.type;
-    this.code = builder.code;
-    this.issuerAccount = builder.issuerAccount;
-    this.amount = builder.amount;
-    this.timestamp = builder.timestamp;
-    this.transactionHash = builder.transactionHash;
+    this.type             = builder.type;
+    this.code             = builder.code;
+    this.issuerAccount    = builder.issuerAccount;
+    this.amount           = builder.amount;
+    this.timestamp        = builder.timestamp;
+    this.transactionHash  = builder.transactionHash;
     this.functionCallHash = builder.functionCallHash;
-    this.meta = builder.meta;
+    this.meta             = builder.meta;
   }
 
   public AssetType getType() {
@@ -103,7 +104,7 @@ public class Asset implements BlockchainEntity {
 
     Asset that = (Asset) object;
     return this.type == that.type
-        && Objects.equals(this.code, that.code)
+        && Objects.equals(this.code,          that.code)
         && Objects.equals(this.issuerAccount, that.issuerAccount);
   }
 
@@ -115,25 +116,26 @@ public class Asset implements BlockchainEntity {
   @Override
   public String toString() {
     return "Asset{"
-        + "type=" + this.type
-        + ", code='" + this.code + '\''
-        + ", issuerAccount='" + this.issuerAccount + '\''
-        + ", amount='" + this.amount + '\''
-        + ", transactionHash='" + this.transactionHash + '\''
-        + ", functionCallHash='" + this.functionCallHash + '\''
-        + ", timestamp=" + this.timestamp
-        + ", meta=" + this.meta
+        + "type="              + this.type                    + ","
+        + "code='"             + this.code + '\''             + ","
+        + "issuerAccount='"    + this.issuerAccount + '\''    + ","
+        + "amount='"           + this.amount + '\''           + ","
+        + "transactionHash='"  + this.transactionHash + '\''  + ","
+        + "functionCallHash='" + this.functionCallHash + '\'' + ","
+        + "timestamp="         + this.timestamp               + ","
+        + "meta="              + this.meta
         + '}';
   }
 
   public static class Builder {
+
     private AssetType type;
-    private String code;
-    private String issuerAccount;
-    private String amount;
-    private Long timestamp;
-    private String transactionHash;
-    private String functionCallHash;
+    private String    code;
+    private String    issuerAccount;
+    private String    amount;
+    private Long      timestamp;
+    private String    transactionHash;
+    private String    functionCallHash;
 
     private Map<String, Object> meta;
 
@@ -180,6 +182,7 @@ public class Asset implements BlockchainEntity {
     public Asset build() {
       return new Asset(this);
     }
+
   }
 
   public enum AssetType {
@@ -188,12 +191,12 @@ public class Asset implements BlockchainEntity {
     ASSET_TYPE_CREDIT_ALPHANUM12(2, "credit_alphanum12"),
     ASSET_TYPE_UNKNOWN(3, "unknown");
 
-    private int value;
+    private int    value;
     private String name;
 
     AssetType(int value, String name) {
       this.value = value;
-      this.name = name;
+      this.name  = name;
     }
 
     /**
@@ -216,7 +219,8 @@ public class Asset implements BlockchainEntity {
     }
 
     public String getName() {
-      return name;
+      return this.name;
     }
   }
+
 }

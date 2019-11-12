@@ -5,25 +5,26 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Token implements BlockchainEntity {
-  private String address;
-  private String symbol;
-  private String name;
-  private BigDecimal decimals;
-  private boolean erc20;
-  private boolean erc721;
+
+  private String              address;
+  private String              symbol;
+  private String              name;
+  private BigDecimal          decimals;
+  private boolean             erc20;
+  private boolean             erc721;
   private Map<String, Object> meta;
 
   public Token() {
   }
 
   private Token(Builder builder) {
-    this.address = builder.address;
-    this.symbol = builder.symbol;
-    this.name = builder.name;
+    this.address  = builder.address;
+    this.symbol   = builder.symbol;
+    this.name     = builder.name;
     this.decimals = builder.decimals;
-    this.erc20 = builder.erc20;
-    this.erc721 = builder.erc721;
-    this.meta = builder.meta;
+    this.erc20    = builder.erc20;
+    this.erc721   = builder.erc721;
+    this.meta     = builder.meta;
   }
 
   public String getAddress() {
@@ -92,13 +93,13 @@ public class Token implements BlockchainEntity {
       return false;
     }
     Token that = (Token) object;
-    return this.erc20 == that.erc20
+    return this.erc20  == that.erc20
         && this.erc721 == that.erc721
-        && Objects.equals(this.address, that.address)
-        && Objects.equals(this.symbol, that.symbol)
-        && Objects.equals(this.name, that.name)
+        && Objects.equals(this.address,  that.address)
+        && Objects.equals(this.symbol,   that.symbol)
+        && Objects.equals(this.name,     that.name)
         && Objects.equals(this.decimals, that.decimals)
-        && Objects.equals(this.meta, that.meta);
+        && Objects.equals(this.meta,     that.meta);
   }
 
   @Override
@@ -117,23 +118,24 @@ public class Token implements BlockchainEntity {
   @Override
   public String toString() {
     return "Token{"
-        + "address='" + this.address + '\''
-        + ", symbol='" + this.symbol + '\''
-        + ", name='" + this.name + '\''
-        + ", decimals=" + this.decimals
-        + ", erc20=" + this.erc20
-        + ", erc721=" + this.erc721
-        + ", meta=" + this.meta
+        + "address='" + this.address + '\'' + ","
+        + "symbol='"  + this.symbol + '\''  + ","
+        + "name='"    + this.name + '\''    + ","
+        + "decimals=" + this.decimals       + ","
+        + "erc20="    + this.erc20          + ","
+        + "erc721="   + this.erc721         + ","
+        + "meta="     + this.meta
         + '}';
   }
 
   public static class Builder {
-    private String address;
-    private String symbol;
-    private String name;
-    private BigDecimal decimals;
-    private boolean erc20;
-    private boolean erc721;
+
+    private String              address;
+    private String              symbol;
+    private String              name;
+    private BigDecimal          decimals;
+    private boolean             erc20;
+    private boolean             erc721;
     private Map<String, Object> meta;
 
     public Builder address(String value) {
@@ -174,5 +176,7 @@ public class Token implements BlockchainEntity {
     public Token build() {
       return new Token(this);
     }
+
   }
+
 }
