@@ -1,5 +1,7 @@
 package io.amberdata.inbound.domain;
 
+import java.math.BigDecimal;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -23,6 +25,7 @@ public class FunctionCall implements BlockchainEntity {
   private Integer             index;
   private String              result;
   private Long                timestamp;
+  private BigDecimal          lumensTransferred;
   private Map<String, Object> meta;
 
   public FunctionCall() {
@@ -193,6 +196,14 @@ public class FunctionCall implements BlockchainEntity {
     this.timestamp = timestamp;
   }
 
+  public BigDecimal getLumensTransferred() {
+    return this.lumensTransferred;
+  }
+
+  public void setLumensTransferred(BigDecimal lumensTransferred) {
+    this.lumensTransferred = lumensTransferred;
+  }
+
   @Override
   public boolean equals(Object object) {
     if (this == object) {
@@ -204,21 +215,22 @@ public class FunctionCall implements BlockchainEntity {
     }
 
     FunctionCall that = (FunctionCall) object;
-    return Objects.equals(this.name,            that.name)
-        && Objects.equals(this.signature,       that.signature)
-        && Objects.equals(this.arguments,       that.arguments)
-        && Objects.equals(this.type,            that.type)
-        && Objects.equals(this.from,            that.from)
-        && Objects.equals(this.to,              that.to)
-        && Objects.equals(this.assetType,       that.assetType)
-        && Objects.equals(this.value,           that.value)
-        && Objects.equals(this.subFunctions,    that.subFunctions)
-        && Objects.equals(this.meta,            that.meta)
-        && Objects.equals(this.blockNumber,     that.blockNumber)
-        && Objects.equals(this.blockHash,       that.blockHash)
-        && Objects.equals(this.transactionHash, that.transactionHash)
-        && Objects.equals(this.result,          that.result)
-        && Objects.equals(this.timestamp,       that.timestamp);
+    return Objects.equals(this.name,              that.name)
+        && Objects.equals(this.signature,         that.signature)
+        && Objects.equals(this.arguments,         that.arguments)
+        && Objects.equals(this.type,              that.type)
+        && Objects.equals(this.from,              that.from)
+        && Objects.equals(this.to,                that.to)
+        && Objects.equals(this.assetType,         that.assetType)
+        && Objects.equals(this.value,             that.value)
+        && Objects.equals(this.subFunctions,      that.subFunctions)
+        && Objects.equals(this.meta,              that.meta)
+        && Objects.equals(this.blockNumber,       that.blockNumber)
+        && Objects.equals(this.blockHash,         that.blockHash)
+        && Objects.equals(this.transactionHash,   that.transactionHash)
+        && Objects.equals(this.result,            that.result)
+        && Objects.equals(this.timestamp,         that.timestamp)
+        && Objects.equals(this.lumensTransferred, that.lumensTransferred);
   }
 
   @Override
@@ -238,31 +250,33 @@ public class FunctionCall implements BlockchainEntity {
         this.blockHash,
         this.transactionHash,
         this.result,
-        this.timestamp
+        this.timestamp,
+        this.lumensTransferred
     );
   }
 
   @Override
   public String toString() {
     return "FunctionCall{"
-        + "name='"            + this.name + '\''            + ","
-        + "hash='"            + this.hash + '\''            + ","
-        + "signature='"       + this.signature + '\''       + ","
-        + "arguments="        + this.arguments              + ","
-        + "type='"            + this.type + '\''            + ","
-        + "from='"            + this.from + '\''            + ","
-        + "to='"              + this.to + '\''              + ","
-        + "assetType='"       + this.assetType + '\''       + ","
-        + "value='"           + this.value + '\''           + ","
-        + "subFunctions="     + this.subFunctions           + ","
-        + "blockNumber="      + this.blockNumber            + ","
-        + "blockHash="        + this.blockHash              + ","
-        + "transactionHash='" + this.transactionHash + '\'' + ","
-        + "depth="            + this.depth                  + ","
-        + "index="            + this.index                  + ","
-        + "result="           + this.result                 + ","
-        + "timestamp="        + this.timestamp              + ","
-        + "meta="             + this.meta
+        + "name='"             + this.name + '\''            + ","
+        + "hash='"             + this.hash + '\''            + ","
+        + "signature='"        + this.signature + '\''       + ","
+        + "arguments="         + this.arguments              + ","
+        + "type='"             + this.type + '\''            + ","
+        + "from='"             + this.from + '\''            + ","
+        + "to='"               + this.to + '\''              + ","
+        + "assetType='"        + this.assetType + '\''       + ","
+        + "value='"            + this.value + '\''           + ","
+        + "subFunctions="      + this.subFunctions           + ","
+        + "blockNumber="       + this.blockNumber            + ","
+        + "blockHash="         + this.blockHash              + ","
+        + "transactionHash='"  + this.transactionHash + '\'' + ","
+        + "depth="             + this.depth                  + ","
+        + "index="             + this.index                  + ","
+        + "result="            + this.result                 + ","
+        + "timestamp="         + this.timestamp              + ","
+        + "lumensTransferred=" + this.lumensTransferred      + ","
+        + "meta="              + this.meta
         + '}';
   }
 
@@ -286,6 +300,7 @@ public class FunctionCall implements BlockchainEntity {
     private Integer             index;
     private String              result;
     private Long                timestamp;
+    private BigDecimal          lumensTransferred;
 
     public FunctionCall.Builder name(String value) {
       this.name = value;
@@ -374,6 +389,11 @@ public class FunctionCall implements BlockchainEntity {
 
     public FunctionCall.Builder timestamp(Long value) {
       this.timestamp = value;
+      return this;
+    }
+
+    public FunctionCall.Builder lumensTransferred(BigDecimal value) {
+      this.lumensTransferred = value;
       return this;
     }
 
