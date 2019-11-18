@@ -32,24 +32,25 @@ public class FunctionCall implements BlockchainEntity {
   }
 
   private FunctionCall(Builder builder) {
-    this.name            = builder.name;
-    this.hash            = builder.hash;
-    this.signature       = builder.signature;
-    this.arguments       = builder.arguments;
-    this.type            = builder.type;
-    this.from            = builder.from;
-    this.to              = builder.to;
-    this.assetType       = builder.assetType;
-    this.value           = builder.value;
-    this.subFunctions    = builder.subFunctions;
-    this.meta            = builder.meta;
-    this.blockNumber     = builder.blockNumber;
-    this.blockHash       = builder.blockHash;
-    this.transactionHash = builder.transactionHash;
-    this.depth           = builder.depth;
-    this.index           = builder.index;
-    this.result          = builder.result;
-    this.timestamp       = builder.timestamp;
+    this.name              = builder.name;
+    this.hash              = builder.hash;
+    this.signature         = builder.signature;
+    this.arguments         = builder.arguments;
+    this.type              = builder.type;
+    this.from              = builder.from;
+    this.to                = builder.to;
+    this.assetType         = builder.assetType;
+    this.value             = builder.value;
+    this.subFunctions      = builder.subFunctions;
+    this.meta              = builder.meta;
+    this.blockNumber       = builder.blockNumber;
+    this.blockHash         = builder.blockHash;
+    this.transactionHash   = builder.transactionHash;
+    this.depth             = builder.depth;
+    this.index             = builder.index;
+    this.result            = builder.result;
+    this.timestamp         = builder.timestamp;
+    this.lumensTransferred = builder.lumensTransferred;
   }
 
   public String getName() {
